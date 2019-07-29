@@ -9,6 +9,7 @@ public class Usuario {
 	private String ciudad_residencia;
 	
 	
+	
 
 	public Usuario() {
 		super();

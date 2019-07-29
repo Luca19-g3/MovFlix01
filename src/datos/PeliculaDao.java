@@ -28,20 +28,11 @@ public class PeliculaDao {
 		try {
 
 			st = con.getConnection().createStatement();
-			st.executeUpdate(sql);
+			int i = st.executeUpdate(sql);
 			
-			st.executeQuery(sql);
-
-
-
-
+			System.out.println(i);
+			
 		
-
-			while (rs.next()) {
-//Aqui de momento nose
-			
-		}
-
 		} catch (SQLException ex) {
 
 
