@@ -1,5 +1,6 @@
 package datos;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,14 +28,18 @@ public class PeliculaDao {
 
 
 
+<<<<<<< HEAD
 		String sql = "INSERT INTO cliente values (NULL,'" + pelicula.getNombre() + "','" + pelicula.getAnho_estreno()
 >>>>>>> 04e4098bf2779700c9a74fd94d5b3b77bd3882e7
+=======
+		String sql = "INSERT INTO Peliculas values (NULL,'" + pelicula.getNombre() + "','" + pelicula.getAnho_estreno()
+>>>>>>> 931f3085fd7692c79f70b056c206f3b9795e3152
 				+ "','" + pelicula.getCategoria() + "')";
-
 
 		try {
 
 			st = con.getConnection().createStatement();
+<<<<<<< HEAD
 			st.executeUpdate(sql);
 
 <<<<<<< HEAD
@@ -61,6 +66,13 @@ public class PeliculaDao {
 		}
 >>>>>>> 04e4098bf2779700c9a74fd94d5b3b77bd3882e7
 
+=======
+			int i = st.executeUpdate(sql);
+			
+			System.out.println(i);
+			
+		
+>>>>>>> 931f3085fd7692c79f70b056c206f3b9795e3152
 		} catch (SQLException ex) {
 
 
@@ -103,14 +115,15 @@ public class PeliculaDao {
 	}
 	 
 
-	public static void modificarPelicula() {
+	public static void modificarPelicula(Pelicula p) {
 
 		try {
-			st = con.getConnection().createStatement();
+			String sql = "UPDATE Peliculas SET Nombre= '"+p.getNombre()+"', Ano_estreno= '"+p.getAnho_estreno()+"' WHERE idPeliculas="+p.getId_pelicula();
+			ps = con.getConnection().prepareStatement(sql) ;
+	st = con.getConnection().createStatement();
 			rs = st.executeQuery("");
 
 			while (rs.next()) {
-				System.out.println("Hola");
 
 			}
 		} catch (SQLException ex) {
