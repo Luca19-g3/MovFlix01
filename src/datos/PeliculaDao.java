@@ -65,7 +65,7 @@ public class PeliculaDao {
 			rs = st.executeQuery("SELECT * FROM Peliculas");
 
 			while (rs.next()) {
-				peliculas.add(new Pelicula(rs.getString(2),rs.getInt(3),rs.getString(4)));
+				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
 			}
 			
 			return peliculas;
