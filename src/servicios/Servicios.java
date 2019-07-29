@@ -11,6 +11,9 @@ import vistas.VistaUsuario;
 //1.17. Crear la clase Servicios en el paquete servicios con el método public boolean altaPelicula() [PDS]
 
 public class Servicios {
+	
+	private PeliculaDao pd =  new PeliculaDao();
+	private UsuarioDao ud = new UsuarioDao();
 
 	public Servicios() {
 
@@ -19,7 +22,7 @@ public class Servicios {
 
 	
 	public void listarPeliculas() {
-		VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
+		VistaPelicula.mostrarListaPeliculas(pd.listarPelicula());
 	}
 
 	public void altaUsuario() {

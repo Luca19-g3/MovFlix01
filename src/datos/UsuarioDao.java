@@ -22,25 +22,22 @@ public class UsuarioDao {
 	 * @param u
 	 */
 	public static void altaUsuario(Usuario u) {
-		 String sql = "INSERT INTO Usuarios (Nombre,Fecha_nacimiento,CiudadResidencia) values('" + u.getNombre_completo() + "','" + u.getFecha_nacimiento()
-		 + "','" + u.getCiudad_residencia() + "')";
+		String sql = "INSERT INTO Usuarios (Nombre,Fecha_nacimiento,CiudadResidencia) values('" + u.getNombre_completo()
+				+ "','" + u.getFecha_nacimiento() + "','" + u.getCiudad_residencia() + "')";
 
-		
-		
 		try {
 
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
 			System.out.println("añadido correctamente");
-			//st.execute(sql);
+			// st.execute(sql);
 
-		
 		} catch (SQLException ex) {
 			System.out.println(ex);
 		}
 	}
-	
+
 	/**
 	 * Metodo que obtiene todas laos usuarios cargados en la base de datos.
 	 * 
@@ -67,6 +64,29 @@ public class UsuarioDao {
 			return null;
 		}
 	}
-
+	/**
+	 * Metodo que elimina usuarios en la base de datos dado su id.
+	 * 
+	 * @param int id del usuario
+	 * @return boolean 
+	 */
+	
+	public boolean bajaUsuario (int id) {
+	
+		boolean eliminar=false;
+				
+		
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("DELETE FROM Usuarios WHERE ID="+id);
+			
+			eliminar=true;
+			
+		} catch (SQLException e) {
+			System.out.println("Error");
+			e.printStackTrace();
+		}		
+		return eliminar;
+	}
 
 }
