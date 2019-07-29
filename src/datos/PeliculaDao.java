@@ -47,17 +47,32 @@ public class PeliculaDao {
 
 
 	
-	  public static void listarPelicula() {
-	  
-	  try { st = con.getConnection().createStatement(); rs =
-	  st.executeQuery("select * from Peliculas");
-	  
-	  while (rs.next()) { System.out.print(rs.getString(1) + "-");
-	  System.out.print(rs.getString(2) + "-"); System.out.println(rs.getString(3));
-	  
-	 } }catch (SQLException ex) {
-	 
-	  } }
+	  /**
+	 * Método que obtiene todas las películas guardadas en la base de datos.
+	 * 
+	 * @param none
+	 * @return List<Pelicula> | null
+	 * */
+
+	public static List<Pelicula> listarPelicula() {
+		
+		List<Pelicula> peliculas = new ArrayList<Pelicula>();
+
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Peliculas");
+
+			while (rs.next()) {
+				peliculas.add(new Pelicula(rs.getString(2),rs.getInt(3),rs.getString(4)));
+			}
+			
+			return peliculas;
+			
+		} catch (SQLException ex) {
+			System.out.println("Error!" + ex.getMessage());
+			return null;
+		}
+	}
 	 
 
 	public static void modificarPelicula() {
