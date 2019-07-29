@@ -1,9 +1,12 @@
 package datos;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Pelicula;
 import utilidades.Conexion;
@@ -19,9 +22,8 @@ public class PeliculaDao {
 
 
 
-		String sql = "INSERT INTO cliente values (NULL,'" + pelicula.getNombre() + "','" + pelicula.getAnho_estreno()
+		String sql = "INSERT INTO Peliculas values (NULL,'" + pelicula.getNombre() + "','" + pelicula.getAnho_estreno()
 				+ "','" + pelicula.getCategoria() + "')";
-
 
 		try {
 
@@ -77,14 +79,15 @@ public class PeliculaDao {
 	}
 	 
 
-	public static void modificarPelicula() {
+	public static void modificarPelicula(Pelicula p) {
 
 		try {
-			st = con.getConnection().createStatement();
+			String sql = "UPDATE Peliculas SET Nombre= '"+p.getNombre()+"', Ano_estreno= '"+p.getAnho_estreno()+"' WHERE idPeliculas="+p.getId_pelicula();
+			ps = con.getConnection().prepareStatement(sql) ;
+	st = con.getConnection().createStatement();
 			rs = st.executeQuery("");
 
 			while (rs.next()) {
-				System.out.println("Hola");
 
 			}
 		} catch (SQLException ex) {
