@@ -30,7 +30,7 @@ public class MovieFlix {
 
 				break;
 			case 2:
-
+				
 				break;
 
 			case 3:
@@ -42,7 +42,7 @@ public class MovieFlix {
 				break;
 
 			case 5:
-
+				servicio.altaUsuario();
 				break;
 
 			case 6:
