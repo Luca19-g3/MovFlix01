@@ -22,7 +22,8 @@ public class PeliculaDao {
 	/*
 	 * Metodo para dar altas peliculas
 	 * @author Jorge
-	 * @
+	 * @param  Pelicula
+	 * @return void
 	 */
 	public static void altaPelicula(Pelicula p) {
 	
@@ -71,7 +72,12 @@ public class PeliculaDao {
 			return null;
 		}
 	}
-
+	/*
+	 * Metodo para modificar las peliculas
+	 * @author Jorge
+	 * @param  none
+	 * @return void
+	 */
 	public static void modificarPelicula(Pelicula p, int id) {
 
 		try {
