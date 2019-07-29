@@ -3,7 +3,7 @@ import java.util.List;
 
 import modelo.Usuario;
 
-public interface IUsuariodDao {
+public interface IUsuarioDao {
 
 	public boolean altaUsuario(Usuario usuario);
 	public List<Usuario> Listar();
