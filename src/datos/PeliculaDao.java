@@ -15,6 +15,7 @@ public class PeliculaDao {
 	static Conexion con = new Conexion();
 
 	public static void altaPelicula(Pelicula pelicula) {
+		
 		String sql = "INSERT INTO cliente values (NULL,'" + pelicula.getNombre() + "','" + pelicula.getAño_estreno()
 				+ "','" + pelicula.getCategoria() + "')";
 
@@ -23,9 +24,7 @@ public class PeliculaDao {
 			st = con.getConnection().createStatement();
 			st.execute(sql);
 
-			while (rs.next()) {
-				System.out.println("");
-			}
+		
 		} catch (SQLException ex) {
 
 		}
