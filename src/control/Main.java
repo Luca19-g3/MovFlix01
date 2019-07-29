@@ -11,7 +11,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
- VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
+
+PeliculaDao.altaPelicula(new Pelicula("La puta de oros", 2020, "2"));
+
+VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 
 		
 	}

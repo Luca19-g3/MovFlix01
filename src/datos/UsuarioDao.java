@@ -1,48 +1,41 @@
 package datos;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import modelo.Pelicula;
-import modelo.Usuario;
 import utilidades.Conexion;
+import modelo.Usuario;
 
 public class UsuarioDao {
-	
+
 	static Statement st = null;
 	static ResultSet rs = null;
-	static PreparedStatement ps = null;
 	static Conexion con = new Conexion();
-	
 
-	  /**
-	 * Metodo que obtiene todas los usuarios guardadas en la base de datos.
+	/**
+	 * añade un usuario en la base de datos
 	 * 
-	 * @param none
-	 * @return List<Usuario> | null
-	 * */
+	 * @param u
+	 */
+	public static void altaUsuario(Usuario u) {
+		 String sql = "INSERT INTO Usuarios (Nombre,Fecha_nacimiento,CiudadResidencia) values('" + u.getNombre_completo() + "','" + u.getFecha_nacimiento()
+		 + "','" + u.getCiudad_residencia() + "')";
 
-	public static List<Usuario> listarUsuario() {
 		
-		List<Usuario> usuarios = new ArrayList<Usuario>();
-
+		
 		try {
-			st = con.getConnection().createStatement();
-			rs = st.executeQuery("SELECT * FROM Usuarios");
 
-			while (rs.next()) {
-				usuarios.add(new Usuario(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)));
-			}
-			
-			return usuarios;
-			
+			st = con.getConnection().createStatement();
+
+			int i = st.executeUpdate(sql);
+			System.out.println("añadido correctamente");
+			//st.execute(sql);
+
+		
 		} catch (SQLException ex) {
-			System.out.println("Error!" + ex.getMessage());
-			return null;
+			System.out.println(ex);
 		}
 	}
 
