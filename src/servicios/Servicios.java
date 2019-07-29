@@ -27,6 +27,21 @@ public class Servicios {
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 	}
+	
+	/**
+	 * Da de alta una pelicula
+	 * @param  none
+	 * @return void
+	 */
+	
+	public void altaPelicula() {
+		
+		Pelicula p = new Pelicula();
+		p.crearPelicula();
+		PeliculaDao.altaPelicula(p);
+	}
+
+
 
 	public void listarUsuarios() {
 		//VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
