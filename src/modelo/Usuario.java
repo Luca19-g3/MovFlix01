@@ -16,6 +16,14 @@ public class Usuario {
 		super();
 	}
 
+	public Usuario(int id_usuario, String nombre_completo, String fecha_nacimiento, String ciudad_residencia) {
+		super();
+		this.id_usuario = id_usuario;
+		this.nombre_completo = nombre_completo;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.ciudad_residencia = ciudad_residencia;
+	}
+
 	public Usuario(String nombre_completo, String fecha_nacimiento, String ciudad_residencia) {
 		super();
 		this.nombre_completo = nombre_completo;
@@ -32,13 +40,6 @@ public class Usuario {
 		this.id_usuario = id_usuario;
 	}
 
-	public Usuario(int id_usuario, String nombre_completo, String fecha_nacimiento, String ciudad_residencia) {
-		super();
-		this.id_usuario = id_usuario;
-		this.nombre_completo = nombre_completo;
-		this.fecha_nacimiento = fecha_nacimiento;
-		this.ciudad_residencia = ciudad_residencia;
-	}
 
 	public String getNombre_completo() {
 		return nombre_completo;
