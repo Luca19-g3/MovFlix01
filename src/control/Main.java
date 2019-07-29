@@ -11,10 +11,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		PeliculaDao pd =  new PeliculaDao();
+		UsuarioDao ud = new UsuarioDao();
+		
+ud.bajaUsuario(7);
 
-PeliculaDao.modificarPelicula(new Pelicula("La sota de oros", 2020, "2"),30);
-
-VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
+VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
 
 		
 	}

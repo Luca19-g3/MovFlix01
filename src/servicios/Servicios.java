@@ -41,7 +41,7 @@ public class Servicios {
 		
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
-		PeliculaDao.altaPelicula(p);
+		pd.altaPelicula(p);
 	}
 
 
