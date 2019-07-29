@@ -9,9 +9,9 @@ public class VistaUsuario {
 
 	/**
 	 * 
-	 * Método para controlar la forma de mostrar el listado de películas
+	 *Metodo para controlar la forma de mostrar el listado de Usuarios
 	 * 
-	 * @param List<Pelicula> listado de todas las películas
+	 * @param List<Usuario> listado de todas las usuarios
 	 * @return void
 	 * 
 	 */
