@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) {
 
 
-PeliculaDao.altaPelicula(new Pelicula("La puta de oros", 2020, "2"));
+PeliculaDao.modificarPelicula(new Pelicula("La sota de oros", 2020, "2"),30);
 
 VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 
