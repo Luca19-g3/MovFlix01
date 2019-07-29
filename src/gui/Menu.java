@@ -12,5 +12,7 @@ public class Menu {
 		System.out.println(" MovieFlix ");
 		System.out.println(" ");
 		System.out.println("************************************************");
+		System.out.println("1. Alta pelicula");
+		
 	}
 }
