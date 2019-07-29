@@ -3,7 +3,7 @@ package servicios;
 import modelo.Pelicula;
 import modelo.Usuario;
 
-//1.17. Crear la clase Servicios en el paquete servicios con el método public boolean altaPelicula() [PDS]
+//1.17. Crear la clase Servicios en el paquete servicios con el mÃ©todo public boolean altaPelicula() [PDS]
 
 public class Servicios {
 
@@ -16,6 +16,10 @@ public class Servicios {
 		Pelicula pel = new Pelicula();
 		pel.crearPelicula();
 		
+	}
+	
+	public void listarPeliculas() {
+		VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 	}
 	
 	public void altaUsuario () {
