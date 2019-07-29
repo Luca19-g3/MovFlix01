@@ -32,10 +32,7 @@ public class Servicios {
 		//VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
 	}
 	public void altaUsuarios() throws Exception {
-		String nombre = Datos.recogeString("escriba el nombre: ");
-		String FechaNaci =Datos.recogeString("escriba la fecha de nacimiento: ");
-		String ciudad =Datos.recogeString("escriba la ciudad de residencia : ");
-		Usuario usu = new Usuario(nombre,FechaNaci,ciudad); //String nombre_completo, String fecha_nacimiento, String ciudad_residencia
-		UsuarioDao.altaUsuario(usu);
+		Usuario usu = new Usuario(); 
+		UsuarioDao.altaUsuario(usu.crearUsuario());
 	}
 }
