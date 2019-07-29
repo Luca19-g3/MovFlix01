@@ -3,6 +3,8 @@ package datos;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Pelicula;
 import utilidades.Conexion;
@@ -38,5 +40,33 @@ public class UsuarioDao {
 			System.out.println(ex);
 		}
 	}
+	
+	/**
+	 * Metodo que obtiene todas laos usuarios cargados en la base de datos.
+	 * 
+	 * @param none
+	 * @return List<Usuario> | null
+	 */
+
+	public static List<Usuario> listarUsuario() {
+
+		List<Usuario> usuarios = new ArrayList<Usuario>();
+
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Peliculas");
+
+			while (rs.next()) {
+				usuarios.add(new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+			}
+
+			return usuarios;
+
+		} catch (SQLException ex) {
+			System.out.println("Error!" + ex.getMessage());
+			return null;
+		}
+	}
+
 
 }
