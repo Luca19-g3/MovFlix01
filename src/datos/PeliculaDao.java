@@ -18,30 +18,32 @@ public class PeliculaDao {
 		try {
 
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("select * from emp");
+			rs = st.executeQuery("aqui query");
 
 			while (rs.next()) {
-				System.out.println("");
+//Aqui de momento nose
 			}
 		} catch (SQLException ex) {
 
 		}
 	}
 
-	public static void modificarPelicula() {
+	/*public static void listarPelicula() {
 	
 		try {
 		st = con.getConnection().createStatement();
-		rs = st.executeQuery("");
+		rs = st.executeQuery("select * from Peliculas");
 		
 		while (rs.next()) {
-			System.out.println("Hola");
+			System.out.print(rs.getString(1) + "-");
+			System.out.print(rs.getString(2) + "-");
+			System.out.println(rs.getString(3));
 			
 		}
 		}catch (SQLException ex) {
 			
 		}
-	}
+	}*/
 	
 	
 

@@ -3,21 +3,18 @@ package utilidades;
 import java.sql.*;
 
 public class Conexion {
-	String timeZone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
 	Connection connection = null;
-	String BD = "empresa1";
-	String driverClassName = "com.mysql.cj.jdbc.Driver";
-	String driverUrl = "jdbc:mysql:///" + BD;
+	String url = "jdbc:mysql://luca19-3g.czwqwdxylfvc.eu-west-1.rds.amazonaws.com/movieflix?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	String user = "root";
-	String password = "root";
+	String password = "rootroot";
 
 	public Conexion() {
 		try {
-			Class.forName(driverClassName);
-			connection = DriverManager.getConnection(driverUrl + timeZone, user, password);
 
-		} catch (ClassNotFoundException e) {
-			System.out.println("No se encuentra el driver");
+			connection = DriverManager.getConnection(url, user, password);
+
+
 		} catch (SQLException E) {
 			System.out.println("Excepcion SQL: " + E.getMessage());
 			System.out.println("Estado SQL: " + E.getSQLState());
