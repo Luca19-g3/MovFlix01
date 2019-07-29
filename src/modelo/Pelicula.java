@@ -45,11 +45,11 @@ public class Pelicula {
 		this.nombre = nombre;
 	}
 
-	public int getAño_estreno() {
+	public int getAnho_estreno() {
 		return anho_estreno;
 	}
 
-	public void setAño_estreno(int año_estreno) {
+	public void setAnho_estreno(int año_estreno) {
 		this.anho_estreno = año_estreno;
 	}
 
