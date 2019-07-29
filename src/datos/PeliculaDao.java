@@ -97,6 +97,28 @@ public class PeliculaDao implements IPeliculasDao {
 		} catch (SQLException ex) {
 
 		}
+		
+
+	}
+	public void bajaPelicula(int id){
+	
+		
+					
+			
+			try {
+				st = con.getConnection().createStatement();
+				int i = st.executeUpdate("DELETE FROM Peliculas WHERE idPeliculas ="+id);
+				System.out.println(i);
+				
+				
+			} catch (SQLException e) {
+				System.out.println("Error");
+				e.printStackTrace();
+			}		
+			
+		
+		
+			
 	}
 
 }
