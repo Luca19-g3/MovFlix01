@@ -6,25 +6,25 @@ public class Pelicula {
 
 	private int id_pelicula;
 	private String nombre;
-	private int año_estreno;
+	private int anho_estreno;
 	private String categoria;
 
 	public Pelicula() {
 		super();
 	}
 
-	public Pelicula(int id_pelicula, String nombre, int año_estreno, String categoria) {
+	public Pelicula(int id_pelicula, String nombre, int anho_estreno, String categoria) {
 		super();
 		this.id_pelicula = id_pelicula;
 		this.nombre = nombre;
-		this.año_estreno = año_estreno;
+		this.anho_estreno = anho_estreno;
 		this.categoria = categoria;
 	}
 	
-	public Pelicula(String nombre, int año_estreno, String categoria) {
+	public Pelicula(String nombre, int anho_estreno, String categoria) {
 		super();
 		this.nombre = nombre;
-		this.año_estreno = año_estreno;
+		this.anho_estreno = anho_estreno;
 		this.categoria = categoria;
 	}
 
@@ -46,11 +46,11 @@ public class Pelicula {
 	}
 
 	public int getAño_estreno() {
-		return año_estreno;
+		return anho_estreno;
 	}
 
 	public void setAño_estreno(int año_estreno) {
-		this.año_estreno = año_estreno;
+		this.anho_estreno = año_estreno;
 	}
 
 	public String getCategoria() {
@@ -74,7 +74,7 @@ public class Pelicula {
 		try {
 
 			this.nombre = Datos.recogeString("Introduce el nombre de la pelicula: ");
-			this.año_estreno = Datos.recogeInt("Introduce el año de estreno: ");
+			this.anho_estreno = Datos.recogeInt("Introduce el año de estreno: ");
 			this.categoria = Datos.recogeString("Introduzca la categoria de la pelicula: ");
 
 		} catch (Exception e) {
@@ -84,7 +84,7 @@ public class Pelicula {
 
 	@Override
 	public String toString() {
-		return "Pelicula [id_pelicula=" + id_pelicula + ", nombre=" + nombre + ", año_estreno=" + año_estreno
+		return "Pelicula [id_pelicula=" + id_pelicula + ", nombre=" + nombre + ", año_estreno=" + anho_estreno
 				+ ", categoria=" + categoria + "]";
 	}
 
