@@ -19,7 +19,11 @@ public class PeliculaDao {
 	static PreparedStatement ps = null;
 	static Conexion con = new Conexion();
 
-	
+	/*
+	 * Metodo para dar altas peliculas
+	 * @author Jorge
+	 * @
+	 */
 	public static void altaPelicula(Pelicula p) {
 	
 		 String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','" + p.getAnho_estreno()
@@ -68,18 +72,22 @@ public class PeliculaDao {
 		}
 	}
 
-	public static void modificarPelicula(Pelicula p) {
+	public static void modificarPelicula(Pelicula p, int id) {
 
 		try {
 			String sql = "UPDATE Peliculas SET Nombre= '" + p.getNombre() + "', Ano_estreno= '" + p.getAnho_estreno()
-					+ "' WHERE idPeliculas=" + p.getId_pelicula();
-			ps = con.getConnection().prepareStatement(sql);
+					+ "' WHERE idPeliculas=" + id;
+			
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("");
 
-			while (rs.next()) {
+			int i = st.executeUpdate(sql);
+			System.out.println("añadido correctamente");
+		
 
-			}
+			System.out.println(sql);
+
+
+			
 		} catch (SQLException ex) {
 
 		}
