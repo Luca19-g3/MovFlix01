@@ -3,7 +3,8 @@ package modelo;
 import utilidades.Datos;
 
 public class Usuario {
-
+	
+	private int id_usuario;
 	private String nombre_completo;
 	private String fecha_nacimiento;
 	private String ciudad_residencia;
@@ -17,6 +18,23 @@ public class Usuario {
 
 	public Usuario(String nombre_completo, String fecha_nacimiento, String ciudad_residencia) {
 		super();
+		this.nombre_completo = nombre_completo;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.ciudad_residencia = ciudad_residencia;
+	}
+
+	
+	public int getId_usuario() {
+		return id_usuario;
+	}
+
+	public void setId_usuario(int id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+	public Usuario(int id_usuario, String nombre_completo, String fecha_nacimiento, String ciudad_residencia) {
+		super();
+		this.id_usuario = id_usuario;
 		this.nombre_completo = nombre_completo;
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.ciudad_residencia = ciudad_residencia;
@@ -68,11 +86,13 @@ public class Usuario {
 			
 		
 	}
-	
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre_completo=" + nombre_completo + ", fecha_nacimiento=" + fecha_nacimiento
-				+ ", ciudad_residencia=" + ciudad_residencia + "]";
+		return "Usuario [id_usuario=" + id_usuario + ", nombre_completo=" + nombre_completo + ", fecha_nacimiento="
+				+ fecha_nacimiento + ", ciudad_residencia=" + ciudad_residencia + "]";
 	}
+	
+
+
 }
