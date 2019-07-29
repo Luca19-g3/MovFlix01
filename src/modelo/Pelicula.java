@@ -20,6 +20,14 @@ public class Pelicula {
 		this.año_estreno = año_estreno;
 		this.categoria = categoria;
 	}
+	
+	public Pelicula(String nombre, int año_estreno, String categoria) {
+		super();
+		this.nombre = nombre;
+		this.año_estreno = año_estreno;
+		this.categoria = categoria;
+	}
+
 
 	public int getId_pelicula() {
 		return id_pelicula;

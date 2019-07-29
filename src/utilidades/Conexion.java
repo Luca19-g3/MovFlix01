@@ -2,8 +2,11 @@ package utilidades;
 
 import java.sql.*;
 
-public class Conexion {
 
+public class Conexion {
+/**
+ * 
+ */
 	Connection connection = null;
 	String url = "jdbc:mysql://luca19-3g.czwqwdxylfvc.eu-west-1.rds.amazonaws.com/movieflix?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	String user = "root";
