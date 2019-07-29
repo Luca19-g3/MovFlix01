@@ -27,6 +27,8 @@ public class PeliculaDao {
 
 			st = con.getConnection().createStatement();
 			st.executeUpdate(sql);
+			
+			st.executeQuery(sql);
 
 
 
