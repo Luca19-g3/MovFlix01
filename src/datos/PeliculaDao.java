@@ -12,7 +12,7 @@ import modelo.Pelicula;
 import modelo.Usuario;
 import utilidades.Conexion;
 
-public class PeliculaDao {
+public class PeliculaDao implements IPeliculasDao {
 
 	static Statement st = null;
 	static ResultSet rs = null;
@@ -25,7 +25,7 @@ public class PeliculaDao {
 	 * @param  Pelicula
 	 * @return void
 	 */
-	public static void altaPelicula(Pelicula p) {
+	public  void altaPelicula(Pelicula p) {
 	
 		 String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','" + p.getAnho_estreno()
 		 + "','" + p.getCategoria() + "')";
@@ -53,7 +53,7 @@ public class PeliculaDao {
 	 * @return List<Pelicula> | null
 	 */
 
-	public static List<Pelicula> listarPelicula() {
+	public List<Pelicula> listarPelicula() {
 
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
@@ -78,7 +78,7 @@ public class PeliculaDao {
 	 * @param  none
 	 * @return void
 	 */
-	public static void modificarPelicula(Pelicula p, int id) {
+	public void modificarPelicula(Pelicula p, int id) {
 
 		try {
 			String sql = "UPDATE Peliculas SET Nombre= '" + p.getNombre() + "', Ano_estreno= '" + p.getAnho_estreno()
