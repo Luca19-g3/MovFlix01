@@ -32,7 +32,8 @@ public class Servicios {
 		//VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
 	}
 	public void altaUsuarios() throws Exception {
-		Usuario usu = new Usuario(); 
-		UsuarioDao.altaUsuario(usu.crearUsuario());
+		Usuario usu = new Usuario();
+		usu.crearUsuario();
+		UsuarioDao.altaUsuario(usu);
 	}
 }
