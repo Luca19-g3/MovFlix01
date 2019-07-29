@@ -35,7 +35,7 @@ public class UsuarioDao {
 			rs = st.executeQuery("SELECT * FROM Usuarios");
 
 			while (rs.next()) {
-				usuarios.add(new Usuario(rs.getString(2),rs.getString(3),rs.getString(4)));
+				usuarios.add(new Usuario(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)));
 			}
 			
 			return usuarios;
