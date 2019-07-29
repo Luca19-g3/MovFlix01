@@ -1,5 +1,7 @@
 package control;
 
+import utilidades.Datos;
+
 public class MovieFlix {
 
 	
@@ -21,7 +23,7 @@ public class MovieFlix {
 		boolean continuar = true ;
 		
 		try {
-			switch () {
+			switch (Datos.recogeInt()) {
 			case 1:
 				
 				break;
