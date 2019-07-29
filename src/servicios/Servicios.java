@@ -11,6 +11,7 @@ public class Servicios {
 		
 	}
 	
+	
 	public void altaPelicula () {
 		Pelicula pel = new Pelicula();
 		pel.crearPelicula();
