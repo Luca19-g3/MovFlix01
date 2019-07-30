@@ -11,10 +11,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
+//PeliculaDao.modificarPelicula(new Pelicula("La sota de oros", 2020, "2"),30);
 
-PeliculaDao.modificarPelicula(new Pelicula("La sota de oros", 2020, "2"),30);
-
-VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
+//VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 
 		
 	}

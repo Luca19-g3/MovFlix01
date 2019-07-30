@@ -88,5 +88,32 @@ public class UsuarioDao {
 		}		
 		return eliminar;
 	}
+	
+	/**
+	 * Metodo que modifica usuarios en la base de datos dado su id.
+	 * 
+	 * @param int id del usuario
+	 * @return void 
+	 */
+	public void modificarUsuario(Usuario us, int id) {
+
+		try {
+			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha de nacimiento= '" + us.getFecha_nacimiento()
+					+ "' WHERE idUsuarios=" + id;
+			
+			st = con.getConnection().createStatement();
+
+			int i = st.executeUpdate(sql);
+			System.out.println("añadido correctamente");
+		
+
+			System.out.println(sql);
+
+
+			
+		} catch (SQLException ex) {
+
+		}
+	}
 
 }
