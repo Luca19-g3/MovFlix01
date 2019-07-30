@@ -15,23 +15,21 @@ import utilidades.Conexion;
 import modelo.Usuario;
 
 public class UsuarioDao implements IUsuarioDao {
-	
 
-	
 	static Statement st = null;
 	static ResultSet rs = null;
 	static Conexion con = new Conexion();
 
 	// Logger
-		private static Logger logger;
-		static {
-			try {
-				logger = LogManager.getLogger(MovieFlix.class);
-			} catch (Throwable e) {
-				System.out.println("Logger Don't work");
-			}
+	private static Logger logger;
+	static {
+		try {
+			logger = LogManager.getLogger(MovieFlix.class);
+		} catch (Throwable e) {
+			System.out.println("Logger Don't work");
 		}
-		
+	}
+
 	/**
 	 * añade un usuario en la base de datos
 	 * 
@@ -51,7 +49,7 @@ public class UsuarioDao implements IUsuarioDao {
 			logger.info("Añadido correctamente");
 
 		} catch (SQLException ex) {
-			logger.error("Error" +ex);
+			logger.error("Error" + ex);
 		}
 	}
 
@@ -77,63 +75,61 @@ public class UsuarioDao implements IUsuarioDao {
 			return usuarios;
 
 		} catch (SQLException ex) {
-			logger.error("Error" +ex.getMessage());
+			logger.error("Error" + ex.getMessage());
 			return null;
 		}
 	}
+
 	/**
 	 * Metodo que elimina usuarios en la base de datos dado su id.
 	 * 
 	 * @param int id del usuario
-	 * @return boolean 
+	 * @return boolean
 	 */
-	
-	public void bajaUsuario (int id) {
-				
+
+	public void bajaUsuario(int id) {
+
 		logger.debug("Ejecutando metodo bajaUsuario() en la clase UsuarioDao");
 		try {
 			st = con.getConnection().createStatement();
-			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios ="+id);
+			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios =" + id);
 
 			logger.info("Eliminado correctamente");
-			
+
 		} catch (SQLException e) {
 			logger.error("Error");
 			e.printStackTrace();
-		}		
-		
+		}
+
 	}
-	
+
 	/**
 	 * Metodo que modifica usuarios en la base de datos dado su id.
 	 * 
 	 * @param int id del usuario
-	 * @return void 
+	 * @return void
 	 */
 	public void modificarUsuario(Usuario us, int id) {
 		logger.debug("Ejecutando metodo modificarUsuario() en la clase UsuarioDao");
 		try {
-			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha de nacimiento= '" + us.getFecha_nacimiento()
-					+ "' WHERE idUsuarios=" + id;
-			
+			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha_nacimiento= '"
+					+ us.getFecha_nacimiento() + "', CiudadResidencia='"+us.getCiudad_residencia()+"' WHERE idUsuarios=" + id;
+
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
 
-
-			
 		} catch (SQLException ex) {
-			logger.error("Error" +ex);
+			logger.error("Error" + ex);
 		}
 	}
 
 	@Override
 	public void bajaUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
 }
