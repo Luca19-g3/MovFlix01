@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import control.MovieFlix;
+import datos.CategoriaDao;
 import datos.IUsuarioDao;
 import datos.PeliculaDao;
 import datos.UsuarioDao;
@@ -29,6 +30,7 @@ public class Servicios {
 
 	private PeliculaDao pd = new PeliculaDao();
 	private UsuarioDao ud = new UsuarioDao();
+	private CategoriaDao cd = new CategoriaDao();
 
 	public Servicios() {
 
@@ -85,11 +87,24 @@ public class Servicios {
 	 * @return void
 	 */
 	public void altaUsuarios() throws Exception {
-		logger.debug("Ejecutando metodo altaUsuarios en la clase Servicios");
+		logger.debug("Ejecutando metodo altaUsuarios() en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 		ud.altaUsuario(usu);
 	}
+	/**
+	 * Da de alta una categoria
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void altaCategoria() {
+		logger.debug("Ejecutando metodo altaCategoria() en la clase Servicios");
+		Categoria c = new Categoria();
+		c.crearCategoria();
+		cd.altaCategoria();
+	}
+	
 	public void modificarUsuario() {
 		
 	}
@@ -99,6 +114,10 @@ public class Servicios {
 	}
 	
 	public void bajaCategoria() {
+		
+		
+	}
+	public void bajaUsuario() {
 		
 	}
 
