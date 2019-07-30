@@ -51,7 +51,7 @@ public class UsuarioDao {
 
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("SELECT * FROM Peliculas");
+			rs = st.executeQuery("SELECT * FROM Usuarios");
 
 			while (rs.next()) {
 				usuarios.add(new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
@@ -78,9 +78,9 @@ public class UsuarioDao {
 		
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("DELETE FROM Usuarios WHERE ID="+id);
+	 eliminar = st.execute("DELETE FROM Usuarios WHERE idUsuarios="+id);
 			
-			eliminar=true;
+	System.out.println(eliminar);
 			
 		} catch (SQLException e) {
 			System.out.println("Error");
