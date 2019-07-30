@@ -18,18 +18,18 @@ public class Main {
 //VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 
 		PeliculaDao pd =  new PeliculaDao();
-		UsuarioDao ud = new UsuarioDao();
+		//UsuarioDao ud = new UsuarioDao();
 		
-ud.bajaUsuario(7);
+	//	ud.bajaUsuario(7);
 
-VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
+		//VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
 
-		d.bajaPelicula(1);
+		//d.bajaPelicula(1);
 		//PeliculaDao.modificarPelicula(new Pelicula("La sota de oros", 2020, "2"),30);
 
 		//VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 
-
+		System.out.println( pd.bajaPelicula(2));
 
 		
 	}

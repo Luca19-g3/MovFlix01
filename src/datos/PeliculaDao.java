@@ -72,7 +72,7 @@ public class PeliculaDao implements IPeliculasDao {
 			return null;
 		}
 	}
-	/*
+	/**
 	 * Metodo para modificar las peliculas
 	 * @author Jorge
 	 * @param  none
@@ -100,6 +100,11 @@ public class PeliculaDao implements IPeliculasDao {
 		
 
 	}
+	/**
+	 * baja a la pelicula con la id correspondiente 
+	 * @param  id Pelicula
+	 * @return boolean 
+	 */
 	public boolean bajaPelicula(int id){
 	
 			try {
