@@ -159,7 +159,7 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	@Override
-	public List<Pelicula> obtenerPeliculas(String flitro) {
+	public List<Pelicula> obtenerPeliculas(String filtro) {
 		// TODO Auto-generated method stub
 		return null;
 	}
