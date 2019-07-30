@@ -45,6 +45,7 @@ public class Menu {
 		System.out.println("14. Mostrar peliculas mas vistas");
 		System.out.println("15. Mostrar peliculas mas vistas por un usuario");
 		System.out.println("16. Mostrar peliculas menos vistas por un usuario");
+		System.out.println("0. -----Terminar sesion----");
 
 
 	}

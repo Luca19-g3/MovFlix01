@@ -127,7 +127,8 @@ public class MovieFlix {
 				servicio.listarPeliculasNoVistas();
 				break;
 			case 0:
-				logger.debug("Ha elegido la opcion: Terminar programa");
+				logger.debug("Ha elegido la opcion: Terminar sesion");
+				continuar = salir();
 				break;
 			}
 		} catch (Exception e) {
@@ -136,9 +137,9 @@ public class MovieFlix {
 		return continuar;
 	}
 
-	/*
-	 * private boolean salir() throws Exception { String sino =
-	 * Datos.recogeString("   Â¿EstÃ¡ seguro?(S/N)"); return
-	 * (sino.toUpperCase().charAt(0) != 'S');
-	 */
+	
+	  private boolean salir() throws Exception { 
+		  String sino =Datos.recogeString("   ¿Está seguro?(S/N)"); 
+		  return (sino.toUpperCase().charAt(0) != 'S');
+	  }
 }
