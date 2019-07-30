@@ -173,10 +173,10 @@ public class Servicios {
 				logger.error("El usuario que intenta eliminar no existe");
 			} else {
 				if (ud.bajaUsuario(id)) {
-					logger.debug("Pelicula eliminada correctamente");
+					logger.debug("Usuario eliminado correctamente");
 
 				} else {
-					logger.error("Hubo un problema al intentar eliminar la pelicula. La pelicula no ha sido eliminada");
+					logger.error("Hubo un problema al intentar eliminar el usuario. El usuario no fue eliminado");
 				}
 			}
 		} catch (Exception e) {
