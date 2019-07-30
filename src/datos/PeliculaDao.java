@@ -49,7 +49,7 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
-			logger.info("Añadido correctamente");
+			logger.info("AÃ±adido correctamente");
 			// st.execute(sql);
 		} catch (SQLException ex) {
 			logger.error("Error" +ex);
@@ -132,16 +132,30 @@ public class PeliculaDao implements IPeliculasDao {
 
 	}
 
-	@Override
-	public List<Pelicula> obtenerPeliculas() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	/**
+	 * Obtiene una pelicula dado un determinado id
+	 * 
+	 * @param int id de la pelicula
+	 * @return Pelicula | null
+	 */
 	@Override
 	public Pelicula obtenerPelicula(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		logger.debug("Ejecutando metodo obtenerPelicula(id) en la clase PeliculaDao");
+		Pelicula p = new Pelicula();
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Peliculas WHERE idPeliculas = " + id);
+						
+			while (rs.next()) {
+				return new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4));
+			}
+			
+			return null;
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+			return null;
+		}
 	}
 
 	
