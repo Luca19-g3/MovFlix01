@@ -30,7 +30,10 @@ public class Main {
 		
 		CategoriaDao d =new CategoriaDao();
 		//d.modificarCategoria(new Categoria("modificada"), 6);
-		d.bajaCategoria(5);
+		//d.bajaCategoria(5);
+		
+		d.altaCategoria(new Categoria("independiente"));
+		
 		
 	}
 }
