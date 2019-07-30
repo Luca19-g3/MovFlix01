@@ -1,5 +1,7 @@
 package control;
 
+import java.util.List;
+
 import datos.CategoriaDao;
 import datos.PeliculaDao;
 import datos.UsuarioDao;
@@ -14,7 +16,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		MovieFlix mo = new MovieFlix();
-		mo.iniciarAplicacion();
+		//MovieFlix mo = new MovieFlix();
+		//mo.iniciarAplicacion();
+		 Servicios s =  new Servicios();
+		 s.obtenerPeliculasFilPorCategoria();
+		 
 	}
 }

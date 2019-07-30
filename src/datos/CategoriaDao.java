@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -131,8 +132,22 @@ public class CategoriaDao implements ICategoriaDao {
 
 	@Override
 	public List<Categoria> listarCategoria() {
+		logger.debug("Ejecutando metodo listar categorias en la clase CategoriaDao");
+		 List<Categoria> c = new  ArrayList<Categoria>();
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Categorias");
+						
+			while (rs.next()) {
+				c.add(new Categoria(rs.getInt(1),rs.getString(2)));
+			}
+			
+			return c;
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+			return null;
+		}
 
-		return null;
 	}
 
 	@Override

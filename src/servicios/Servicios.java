@@ -1,5 +1,7 @@
 package servicios;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,6 +14,7 @@ import modelo.Categoria;
 import modelo.Pelicula;
 import modelo.Usuario;
 import utilidades.Datos;
+import vistas.VistaCategoria;
 import vistas.VistaPelicula;
 import vistas.VistaUsuario;
 
@@ -45,6 +48,22 @@ public class Servicios {
 	public void listarPeliculas() {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
 		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas());
+	}
+	
+	public void obtenerPeliculasFilPorCategoria() {
+		logger.debug("Ejecutando metodo listar peliculas filtradas por categoria");
+		
+		try {
+			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
+			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")));
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			logger.error("Excepcion servicios.obtenerPeliculasPorCategoria. " + e.getMessage());
+		}
+		
+		
 	}
 
 	/**

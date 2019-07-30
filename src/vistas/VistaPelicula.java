@@ -36,5 +36,7 @@ public class VistaPelicula {
 			
 		}
 		System.out.println(listado);
+	
 	}
+	
 }

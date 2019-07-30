@@ -52,7 +52,7 @@ public class PeliculaDao implements IPeliculasDao {
 			logger.info("Añadido correctamente");
 			// st.execute(sql);
 		} catch (SQLException ex) {
-			logger.error("Error" +ex);
+			logger.error("Error" + ex);
 		}
 	}
 
@@ -78,7 +78,7 @@ public class PeliculaDao implements IPeliculasDao {
 			return peliculas;
 
 		} catch (SQLException ex) {
-			logger.error("Error "+ ex.getMessage());
+			logger.error("Error " + ex.getMessage());
 
 			return null;
 		}
@@ -103,12 +103,10 @@ public class PeliculaDao implements IPeliculasDao {
 			logger.info("Modificado correctamente");
 			return true;
 
-
 		} catch (SQLException ex) {
-			logger.error("Error" +ex);
+			logger.error("Error" + ex);
 			return false;
 		}
-		
 
 	}
 
@@ -134,7 +132,6 @@ public class PeliculaDao implements IPeliculasDao {
 
 	}
 
-	
 	/**
 	 * Obtiene una pelicula dado un determinado id
 	 * 
@@ -148,11 +145,11 @@ public class PeliculaDao implements IPeliculasDao {
 		try {
 			st = con.getConnection().createStatement();
 			rs = st.executeQuery("SELECT * FROM Peliculas WHERE idPeliculas = " + id);
-						
+
 			while (rs.next()) {
-				return new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4));
+				return new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4));
 			}
-			
+
 			return null;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
@@ -161,9 +158,27 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	@Override
-	public List<Pelicula> obtenerPeliculas(String filtro) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Pelicula> obtenerPeliculasPorCategoria(int id) {
+		logger.debug("Ejecutando metodo obtenerPeliculasPorCategoria() en la clase PeliculaDao");
+		List<Pelicula> peliculas = new ArrayList<Pelicula>();
+
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Peliculas WHERE id_Categorias = " + id);
+
+			while (rs.next()) {
+
+				peliculas.add(new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
+			}
+
+			return peliculas;
+
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+
+			return null;
+		}
+
 	}
 
 	@Override
@@ -171,8 +186,5 @@ public class PeliculaDao implements IPeliculasDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-	
 
 }
