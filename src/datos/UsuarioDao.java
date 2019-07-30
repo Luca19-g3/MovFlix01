@@ -71,22 +71,20 @@ public class UsuarioDao {
 	 * @return boolean 
 	 */
 	
-	public boolean bajaUsuario (int id) {
-	
-		boolean eliminar=false;
+	public void bajaUsuario (int id) {
 				
 		
 		try {
 			st = con.getConnection().createStatement();
-	 eliminar = st.execute("DELETE FROM Usuarios WHERE idUsuarios="+id);
+			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios ="+id);
+			System.out.println(i);
 			
-	System.out.println(eliminar);
 			
 		} catch (SQLException e) {
 			System.out.println("Error");
 			e.printStackTrace();
 		}		
-		return eliminar;
+		
 	}
 	
 	/**
