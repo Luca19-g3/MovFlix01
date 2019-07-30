@@ -72,27 +72,27 @@ public class Servicios {
 		p.crearPelicula();
 		pd.altaPelicula(p);
 	}
-	
+
 	public void bajaPelicula() {
-		
+
 		logger.debug("Ejecutando metodo bajaPelicula() en la clase Servicios");
 		int id;
 		try {
 			id = Datos.recogeInt("Introduzca el id de la Pelicula a eliminar");
 			if (pd.obtenerPelicula(id) == null) {
-			logger.error("La pelicula que intenta eliminar no existe");
+				logger.error("La pelicula que intenta eliminar no existe");
 			} else {
 				if (pd.bajaPelicula(id)) {
-				logger.debug("Pelicula eliminada correctamente");
+					logger.debug("Pelicula eliminada correctamente");
 
-				}else {
+				} else {
 					logger.error("Hubo un problema al intentar eliminar la pelicula. La pelicula no ha sido eliminada");
 				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			logger.error("Excepcion servicios.bajaCategoria. "+e.getMessage());
+			logger.error("Excepcion servicios.bajaCategoria. " + e.getMessage());
 		}
 	}
 
@@ -147,25 +147,45 @@ public class Servicios {
 		try {
 			id = Datos.recogeInt("Introduzca el id de la Pelicula a eliminar");
 			if (pd.obtenerPelicula(id) == null) {
-			logger.error("La pelicula que intenta eliminar no existe");
+				logger.error("La pelicula que intenta eliminar no existe");
 			} else {
 				if (pd.bajaPelicula(id)) {
-				logger.debug("Pelicula eliminada correctamente");
+					logger.debug("Pelicula eliminada correctamente");
 
-				}else {
+				} else {
 					logger.error("Hubo un problema al intentar eliminar la pelicula. La pelicula no ha sido eliminada");
 				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			logger.error("Excepcion servicios.bajaCategoria. "+e.getMessage());
+			logger.error("Excepcion servicios.bajaCategoria. " + e.getMessage());
 		}
 
 	}
 
 	public void bajaUsuario() {
+		logger.debug("Ejecutando metodo bajaUsuario() en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id del Usuario a eliminar");
+			if (ud.obtenerUsuario(id) == null) {
+				logger.error("El usuario que intenta eliminar no existe");
+			} else {
+				if (ud.bajaUsuario(id)) {
+					logger.debug("Pelicula eliminada correctamente");
+
+				} else {
+					logger.error("Hubo un problema al intentar eliminar la pelicula. La pelicula no ha sido eliminada");
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("Excepcion servicios.bajaCategoria. " + e.getMessage());
+		}
 
 	}
+	
 
 }

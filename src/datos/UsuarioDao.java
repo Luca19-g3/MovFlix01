@@ -87,7 +87,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 * @return boolean
 	 */
 
-	public void bajaUsuario(int id) {
+	public boolean bajaUsuario(int id) {
 
 		logger.debug("Ejecutando metodo bajaUsuario() en la clase UsuarioDao");
 		try {
@@ -95,12 +95,12 @@ public class UsuarioDao implements IUsuarioDao {
 			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios =" + id);
 
 			logger.info("Eliminado correctamente");
-
+			return true;
 		} catch (SQLException e) {
 			logger.error("Error");
 			e.printStackTrace();
+			return false;
 		}
-
 	}
 
 	/**
@@ -109,23 +109,25 @@ public class UsuarioDao implements IUsuarioDao {
 	 * @param int id del usuario
 	 * @return void
 	 */
-	public void modificarUsuario(Usuario us, int id) {
+	public boolean modificarUsuario(Usuario us, int id) {
 		logger.debug("Ejecutando metodo modificarUsuario() en la clase UsuarioDao");
 		try {
 			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha_nacimiento= '"
-					+ us.getFecha_nacimiento() + "', CiudadResidencia='"+us.getCiudad_residencia()+"' WHERE idUsuarios=" + id;
+					+ us.getFecha_nacimiento() + "', CiudadResidencia='" + us.getCiudad_residencia()
+					+ "' WHERE idUsuarios=" + id;
 
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
-
+			return true;
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
+			return false;
 		}
 	}
-	
+
 	/**
 	 * Obtiene una pelicula dado un determinado id
 	 * 
@@ -139,17 +141,16 @@ public class UsuarioDao implements IUsuarioDao {
 		try {
 			st = con.getConnection().createStatement();
 			rs = st.executeQuery("SELECT * FROM Usuarios WHERE idUsuarios = " + id);
-						
+
 			while (rs.next()) {
-				return new Usuario(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
+				return new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
 			}
-			
+
 			return null;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
 			return null;
 		}
 	}
-
 
 }
