@@ -37,6 +37,10 @@ public class Menu {
 		System.out.println("6. Modificar Usuario");
 		System.out.println("7. Baja Usuario");
 		System.out.println("8. Listar Usuarios");
+		System.out.println("9. Alta categoria");
+		System.out.println("10. Modificar categoria");
+		System.out.println("11. Baja categoria");
+		System.out.println("12. Listar categorias");
 
 	}
 	

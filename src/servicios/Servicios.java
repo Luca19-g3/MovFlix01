@@ -7,6 +7,7 @@ import control.MovieFlix;
 import datos.IUsuarioDao;
 import datos.PeliculaDao;
 import datos.UsuarioDao;
+import modelo.Categoria;
 import modelo.Pelicula;
 import modelo.Usuario;
 import utilidades.Datos;
@@ -90,6 +91,14 @@ public class Servicios {
 		ud.altaUsuario(usu);
 	}
 	public void modificarUsuario() {
+		
+	}
+	
+	public void modificarCategoria() {
+		
+	}
+	
+	public void bajaCategoria() {
 		
 	}
 
