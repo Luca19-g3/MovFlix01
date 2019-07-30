@@ -42,7 +42,7 @@ public class MovieFlix {
 				break;
 
 			case 5:
-				servicio.altaUsuario();
+				servicio.altaUsuarios();
 				break;
 
 			case 6:
