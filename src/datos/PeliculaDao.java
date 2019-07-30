@@ -63,7 +63,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return List<Pelicula> | null
 	 */
 
-	public List<Pelicula> listarPelicula() {
+	public List<Pelicula> obtenerPeliculas() {
 		logger.debug("Ejecutando metodo listarPelicula() en la clase PeliculaDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 

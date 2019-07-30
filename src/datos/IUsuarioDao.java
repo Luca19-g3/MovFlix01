@@ -8,4 +8,5 @@ public interface IUsuarioDao {
 	public List<Usuario> listarUsuario();
 	public void modificarUsuario(Usuario usuario, int id);
 	public void bajaUsuario(int id);
+	public Usuario obtenerUsuario(int id);
 }
