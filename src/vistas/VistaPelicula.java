@@ -37,8 +37,7 @@ public class VistaPelicula {
 		}
 		System.out.println(listado);
 	
-<<<<<<< HEAD
-=======
+
 	}
 	
 	public static void mostrarPeliculasMasValoradas(List<String> peliculas) {
@@ -52,7 +51,7 @@ public class VistaPelicula {
 		
 		}
 		System.out.println(listado);
->>>>>>> a675eed0e4ff991e5dcf7358d6ab3043d78d111b
+
 	}
 	
 }

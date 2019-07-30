@@ -221,5 +221,11 @@ System.out.println(peliculas.toString());
 		}
 	}
 
+	@Override
+	public List<Pelicula> obtenerPeliculas(String filtro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
