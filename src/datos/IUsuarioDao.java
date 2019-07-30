@@ -4,8 +4,8 @@ import java.util.List;
 import modelo.Usuario;
 
 public interface IUsuarioDao {
-	public boolean altaUsuario(Usuario usuario);
+	public void altaUsuario(Usuario usuario);
 	public List<Usuario> listarUsuario();
-	public boolean modificarUsuario(Usuario usuario);
-	public boolean bajaUsuario(Usuario usuario);
+	public void modificarUsuario(Usuario usuario, int id);
+	public void bajaUsuario(Usuario usuario);
 }
