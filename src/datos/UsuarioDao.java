@@ -14,8 +14,10 @@ import modelo.Pelicula;
 import utilidades.Conexion;
 import modelo.Usuario;
 
-public class UsuarioDao {
+public class UsuarioDao implements IUsuarioDao {
+	
 
+	
 	static Statement st = null;
 	static ResultSet rs = null;
 	static Conexion con = new Conexion();
@@ -35,7 +37,7 @@ public class UsuarioDao {
 	 * 
 	 * @param usuario
 	 */
-	public static void altaUsuario(Usuario u) {
+	public void altaUsuario(Usuario u) {
 		logger.debug("Ejecutando metodo altaUsuario() en la clase UsuarioDao");
 		String sql = "INSERT INTO Usuarios (Nombre,Fecha_nacimiento,CiudadResidencia) values('" + u.getNombre_completo()
 				+ "','" + u.getFecha_nacimiento() + "','" + u.getCiudad_residencia() + "')";
@@ -60,7 +62,7 @@ public class UsuarioDao {
 	 * @return List<Usuario> | null
 	 */
 
-	public static List<Usuario> listarUsuario() {
+	public List<Usuario> listarUsuario() {
 		logger.debug("Ejecutando metodo listarUsuario() en la clase UsuarioDao");
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -127,4 +129,11 @@ public class UsuarioDao {
 		}
 	}
 
+	@Override
+	public void bajaUsuario(Usuario usuario) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
