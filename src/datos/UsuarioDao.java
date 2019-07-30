@@ -31,7 +31,7 @@ public class UsuarioDao implements IUsuarioDao {
 	}
 
 	/**
-	 * añade un usuario en la base de datos
+	 * aÃ±ade un usuario en la base de datos
 	 * 
 	 * @param usuario
 	 */
@@ -46,7 +46,7 @@ public class UsuarioDao implements IUsuarioDao {
 
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
-			logger.info("Añadido correctamente");
+			logger.info("AÃ±adido correctamente");
 
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -147,6 +147,30 @@ public class UsuarioDao implements IUsuarioDao {
 			}
 
 			return null;
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+			return null;
+		}
+	}
+	
+	/**
+	 * Obtiene una una lista de peliculas vistas dado el id de un usuario
+	 * 
+	 * @param int id del usuario
+	 * @return List<Pelicula> | null 
+	 */
+	public List<Pelicula> obtenerPeliculasNoVistas(int id){
+		logger.debug("Ejecutando metodo obtenerPeliculasNoVistas(id) en la clase UsuarioDao");
+		List<Pelicula> peliculas = new ArrayList<Pelicula>();
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("Select * From Peliculas Where idPeliculas" + 
+					" NOT IN(select id_Peliculas FROM PeliculasVistas Where id_usuarios = " + id + ")");
+
+			while (rs.next()) {
+				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
+			}
+			return peliculas;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
 			return null;
