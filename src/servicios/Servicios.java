@@ -75,7 +75,7 @@ public class Servicios {
 	 */
 	public void listarUsuarios() {
 		logger.debug("Ejecutando metodo listarUsuarios en la clase Servicios");
-		VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
+		VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
 	}
 	/**
 	 * Da de alta un usuario
@@ -87,7 +87,7 @@ public class Servicios {
 		logger.debug("Ejecutando metodo altaUsuarios en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
-		UsuarioDao.altaUsuario(usu);
+		ud.altaUsuario(usu);
 	}
 	public void modificarUsuario() {
 		

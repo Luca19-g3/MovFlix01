@@ -132,4 +132,18 @@ public class PeliculaDao implements IPeliculasDao {
 
 	}
 
+	@Override
+	public List<Pelicula> obtenerPeliculas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pelicula obtenerPelicula(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
 }
