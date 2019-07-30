@@ -81,6 +81,7 @@ public class MovieFlix {
 
 			case 6:
 				logger.debug("Ha elegido la opcion 6");
+				servicio.modificarUsuario();
 				break;
 
 			case 7:

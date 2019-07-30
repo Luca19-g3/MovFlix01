@@ -89,5 +89,8 @@ public class Servicios {
 		usu.crearUsuario();
 		UsuarioDao.altaUsuario(usu);
 	}
+	public void modificarUsuario() {
+		
+	}
 
 }
