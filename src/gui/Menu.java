@@ -41,6 +41,7 @@ public class Menu {
 		System.out.println("10. Modificar categoria");
 		System.out.println("11. Baja categoria");
 		System.out.println("12. Listar categorias");
+		System.out.println("13. Mostrar peliculas mas valoradas");
 
 	}
 	

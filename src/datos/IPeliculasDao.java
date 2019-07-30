@@ -11,6 +11,6 @@ public interface IPeliculasDao {
 	public boolean modificarPelicula(Pelicula p, int id);
 	public boolean bajaPelicula(int id);
 	public Pelicula obtenerPelicula(int id);
-
+	public List<String> obtenerPeliculasMasValoradas(int limite);
 	
 }

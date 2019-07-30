@@ -280,5 +280,22 @@ public class Servicios {
 		}
 
 	}
-
+	/**
+	 * Lista las peliculas mas valoradas
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void listarPeliculasPeliculasMasValoradas() {
+		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
+		int limite;
+		try {
+		limite = Datos.recogeInt("Introduce el limite de peliculas que quieres listar");
+		VistaPelicula.mostrarPeliculasMasValoradas(pd.obtenerPeliculasMasValoradas(limite));
+		}
+		catch (Exception e) {
+			logger.error("Este limite no es correcto");
+		}
+	
+	}
 }

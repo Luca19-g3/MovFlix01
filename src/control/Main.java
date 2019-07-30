@@ -16,5 +16,6 @@ public class Main {
 
 		MovieFlix mo = new MovieFlix();
 		mo.iniciarAplicacion();
+
 	}
 }

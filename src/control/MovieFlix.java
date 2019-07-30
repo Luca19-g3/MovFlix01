@@ -112,6 +112,7 @@ public class MovieFlix {
 				break;
 			case 13:
 				logger.debug("Ha elegido la opcion 13"); 
+				servicio.listarPeliculasPeliculasMasValoradas();
 				break;
 			case 0:
 				logger.debug("Ha elegido la opcion: Terminar programa");

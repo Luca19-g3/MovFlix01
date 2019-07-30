@@ -178,9 +178,10 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return List<Pelicula> | null
 	 */
 
-	public List<String> obtenerPeliculasMasValoradas() {
+	public List<String> obtenerPeliculasMasValoradas(int limite) {
 		logger.debug("Ejecutando metodo obtenerPeliculasMasValoradas() en la clase PeliculaDao");
 		List<String> peliculas = new ArrayList<String>();
+
 
 		try {
 			st = con.getConnection().createStatement();
@@ -188,12 +189,14 @@ public class PeliculaDao implements IPeliculasDao {
 					"	FROM Peliculas P , PeliculasVistas V\r\n" + 
 					"	where P.idPeliculas=V.id_Peliculas\r\n" + 
 					"	group by id_Peliculas\r\n" + 
-					"	ORDER BY Veces DESC;");
+					"	ORDER BY Veces DESC"
+					+ " LIMIT " + limite);
 
 			while (rs.next()) {
-				peliculas.add(rs.getString(1) + " Visualizaciones: " + String.valueOf(rs.getString(2)));
-			}
 
+				peliculas.add(rs.getString(1)+ " | Visualizaciones: "+String.valueOf(rs.getString(2)));
+			}
+System.out.println(peliculas.toString());
 			return peliculas;
 
 		} catch (SQLException ex) {
