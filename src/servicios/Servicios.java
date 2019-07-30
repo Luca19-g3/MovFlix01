@@ -145,27 +145,17 @@ public class Servicios {
 		logger.debug("Ejecutando metodo bajaCategoria() en la clase Servicios");
 		int id;
 		try {
-<<<<<<< HEAD
+
 			id = Datos.recogeInt("Introduzca el id de la Categoria a eliminar");
-			if (cd.obtenerCategoria(id)== null) {
-			logger.error("La categoria que intenta eliminar no existe");
+			if (cd.obtenerCategoria(id) == null) {
+				logger.error("La categoria que intenta eliminar no existe");
 			} else {
 				if (cd.bajaCategoria(id)) {
-				logger.debug("Categoria eliminada correctamente");
-
-				}else {
-					logger.error("Hubo un problema al intentar eliminar la categoria. La categoria no ha sido eliminada");
-=======
-			id = Datos.recogeInt("Introduzca el id de la Pelicula a eliminar");
-			if (pd.obtenerPelicula(id) == null) {
-				logger.error("La pelicula que intenta eliminar no existe");
-			} else {
-				if (pd.bajaPelicula(id)) {
-					logger.debug("Pelicula eliminada correctamente");
+					logger.debug("Categoria eliminada correctamente");
 
 				} else {
-					logger.error("Hubo un problema al intentar eliminar la pelicula. La pelicula no ha sido eliminada");
->>>>>>> a24f1260306464c593ffbd90d84e89df8cfc385a
+					logger.error(
+							"Hubo un problema al intentar eliminar la categoria. La categoria no ha sido eliminada");
 				}
 			}
 		} catch (Exception e) {
@@ -198,6 +188,5 @@ public class Servicios {
 		}
 
 	}
-	
 
 }
