@@ -33,8 +33,8 @@ public class Categoria {
      */
     public void crearCategoria() {
         try {
-            this.idcategoria = Datos.recogeInt("Digite el id de la categoría");
-            this.nombre = Datos.recogeString("Digite el nombre de la categoría");
+            this.idcategoria = Datos.recogeInt("Digite el id de la categoria");
+            this.nombre = Datos.recogeString("Digite el nombre de la categoria");
         } catch (Exception e) {
             e.getStackTrace();
         }
