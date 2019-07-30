@@ -4,7 +4,12 @@ import servicios.Servicios;
 import utilidades.Datos;
 
 public class MovieFlix {
-
+	
+	/**
+	 * Método para iniciar la aplicación
+	 * @param: none
+	 * @return: void 
+	 */
 	public void iniciarAplicacion() {
 		boolean seguir = true;
 		do {
@@ -13,13 +18,13 @@ public class MovieFlix {
 		System.out.println("---Fin de la sesion---");
 	}
 
+	Servicios servicio = new Servicios();
 	
 	/**
+	 * Método que gestiona la elección de opciones del menú del usuario
 	 * @param: none
-	 * @return: void en esta parte se creará un objeto de la interfaz IServicios
+	 * @return: boolean
 	 */
-	Servicios servicio = new Servicios();
-
 	public boolean seleccionarOpcion() {
 		boolean continuar = true;
 
