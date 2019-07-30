@@ -72,7 +72,12 @@ public class Servicios {
 		p.crearPelicula();
 		pd.altaPelicula(p);
 	}
-
+	/**
+	 * Metodo para dar de baja una pelicula solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void bajaPelicula() {
 
 		logger.debug("Ejecutando metodo bajaPelicula() en la clase Servicios");
@@ -144,24 +149,56 @@ public class Servicios {
 		int id;
 		try {
 			id = Datos.recogeInt("Introduzca el id del usuario a modificar");
-			if(ud.obtenerUsuario(id) == null) {
+			if (ud.obtenerUsuario(id) == null) {
 				logger.error("El usuario que intenta eliminar no existe");
-			}else {
-				if(ud.bajaUsuario(id)) {
+			} else {
+				Usuario u =  new Usuario();
+				u.crearUsuario();
+				if (ud.modificarUsuario(u, id)) {
 					logger.debug("El usuario ha sido modificado correctamente");
-				}else {
-					logger.error("Hubo un problema al intentar modificar el usuario. El usuario no ha sido modificado.");
+				} else {
+					logger.error(
+							"Hubo un problema al intentar modificar el usuario. El usuario no ha sido modificado.");
 				}
 			}
-		}catch(Exception e) {
-			logger.error("Excepción servicios.modificarUsuario. " + e.getMessage());
+		} catch (Exception e) {
+			logger.error("Excepcion servicios.modificarUsuario. " + e.getMessage());
 		}
 	}
-
+	/**
+	 * Método para modificar la categoria solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void modificarCategoria() {
+		logger.debug("Ejecutando metodo modificarCategoria en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id de la Categoria a modificar");
+			if (cd.obtenerCategoria(id) == null) {
+				logger.error("La categoria que intenta modificar no existe");
+			} else {
+				Categoria ca =  new Categoria();
+				ca.crearCategoria();
+				if (cd.modificarCategoria(ca, id))  {
+					logger.debug("La categoria ha sido modificado correctamente");
+				} else {
+					logger.error(
+							"Hubo un problema al intentar modificar la categoria. La categoria no ha sido modificada.");
+				}
+			}
+		} catch (Exception e) {
+			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
+		}
 
 	}
-
+	/**
+	 * Metodo para dar de baja a una categoria solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void bajaCategoria() {
 		logger.debug("Ejecutando metodo bajaCategoria() en la clase Servicios");
 		int id;
@@ -180,13 +217,17 @@ public class Servicios {
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			logger.error("Excepcion servicios.bajaCategoria. " + e.getMessage());
 		}
 
 	}
-
+	/**
+	 * Metodo para dar de baja a un usuario solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void bajaUsuario() {
 		logger.debug("Ejecutando metodo bajaUsuario() en la clase Servicios");
 		int id;

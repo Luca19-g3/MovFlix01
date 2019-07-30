@@ -64,7 +64,7 @@ public class CategoriaDao implements ICategoriaDao {
 	 * @return void
 	 */
 	@Override
-	public void modificarCategoria(Categoria c, int id) {
+	public boolean modificarCategoria(Categoria c, int id) {
 
 		logger.debug("Ejecutando metodo modificarCategoria() en la clase CategoriaDao");
 		try {
@@ -75,9 +75,10 @@ public class CategoriaDao implements ICategoriaDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
-
+			return true;
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
+			return false;
 		}
 	}
 
