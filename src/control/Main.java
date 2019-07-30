@@ -29,13 +29,14 @@ public class Main {
 		
 		//System.out.println( pd.bajaPelicula(2));
 		
-		CategoriaDao d =new CategoriaDao();
+		CategoriaDao ca =new CategoriaDao();
+		
 		//d.modificarCategoria(new Categoria("modificada"), 6);
 		//d.bajaCategoria(5);
 		
 		//d.altaCategoria(new Categoria("independiente"));
 		Servicios s = new Servicios();
-		s.bajaPelicula();
+		s.bajaCategoria();
 		
 		
 	}
