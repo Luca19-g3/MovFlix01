@@ -7,10 +7,7 @@ import gui.Menu;
 import servicios.Servicios;
 import utilidades.Datos;
 
-
-
 public class MovieFlix {
-
 
 	// Logger
 	private static Logger logger;
@@ -22,35 +19,31 @@ public class MovieFlix {
 		}
 	}
 
-	
-
-	
 	/**
 	 * Metodo para iniciar la aplicación
+	 * 
 	 * @param: none
-	 * @return: void 
+	 * @return: void
 	 */
 
 	public void iniciarAplicacion() {
-		
+
 		logger.info("Inicio de la aplicacion----");
 		boolean seguir = true;
 		do {
 			Menu.mostrarMenu();
-            seguir = this.seleccionarOpcion();
+			seguir = this.seleccionarOpcion();
 		} while (seguir);
 
 		logger.info("Fin de la aplicacion----");
 
-
-
-
 	}
 
 	Servicios servicio = new Servicios();
-	
+
 	/**
 	 * Metodo que gestiona la elección de opciones del menú del usuario
+	 * 
 	 * @param: none
 	 * @return: boolean
 	 */
@@ -66,7 +59,7 @@ public class MovieFlix {
 				break;
 			case 2:
 				logger.debug("Ha elegido la opcion 2");
-			
+				servicio.modificarUsuario();
 				break;
 
 			case 3:
@@ -102,7 +95,7 @@ public class MovieFlix {
 				logger.debug("Ha elegido la opcion 9");
 				servicio.altaCategoria();
 				break;
-				
+
 			case 10:
 				logger.debug("Ha elegido la opcion 10");
 				servicio.modificarCategoria();
@@ -115,9 +108,12 @@ public class MovieFlix {
 
 			case 12:
 				logger.debug("Ha elegido la opcion 12");
-				
-				break;
 
+				break;
+			case 13:
+				logger.debug("Ha elegido la opcion 13"); 
+				servicio.listarPeliculasPeliculasMasValoradas();
+				break;
 			case 0:
 				logger.debug("Ha elegido la opcion: Terminar programa");
 				break;
@@ -128,7 +124,6 @@ public class MovieFlix {
 		return continuar;
 	}
 
-	
 	/*
 	 * private boolean salir() throws Exception { String sino =
 	 * Datos.recogeString("   ¿Está seguro?(S/N)"); return

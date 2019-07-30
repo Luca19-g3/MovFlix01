@@ -37,6 +37,24 @@ public class VistaPelicula {
 		}
 		System.out.println(listado);
 	
+<<<<<<< HEAD
+=======
+	}
+	
+	public static void mostrarPeliculasMasValoradas(List<String> peliculas) {
+		logger.debug("Ejecutando metodo mostrarPeliculasMasValoradas(List<String> peliculas)");
+		StringBuilder listado = new StringBuilder();
+		
+		listado.append("**********************\nListado de todas las peliculas mas valoradas:\n");
+		for(String p:peliculas) {
+
+		listado.append(p+"\n");
+		
+		}
+		System.out.println(listado);
+>>>>>>> a675eed0e4ff991e5dcf7358d6ab3043d78d111b
 	}
 	
 }
+
+

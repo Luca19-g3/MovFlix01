@@ -186,5 +186,40 @@ public class PeliculaDao implements IPeliculasDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	/**
+	 * Metodo que obtiene las peliculas mas valoradas.
+	 * 
+	 * @param none
+	 * @return List<Pelicula> | null
+	 */
+
+	public List<String> obtenerPeliculasMasValoradas(int limite) {
+		logger.debug("Ejecutando metodo obtenerPeliculasMasValoradas() en la clase PeliculaDao");
+		List<String> peliculas = new ArrayList<String>();
+
+
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("	SELECT Nombre, COUNT(*) AS Veces\r\n" + 
+					"	FROM Peliculas P , PeliculasVistas V\r\n" + 
+					"	where P.idPeliculas=V.id_Peliculas\r\n" + 
+					"	group by id_Peliculas\r\n" + 
+					"	ORDER BY Veces DESC"
+					+ " LIMIT " + limite);
+
+			while (rs.next()) {
+
+				peliculas.add(rs.getString(1)+ " | Visualizaciones: "+String.valueOf(rs.getString(2)));
+			}
+System.out.println(peliculas.toString());
+			return peliculas;
+
+		} catch (SQLException ex) {
+			logger.error("Error "+ ex.getMessage());
+
+			return null;
+		}
+	}
+
 
 }
