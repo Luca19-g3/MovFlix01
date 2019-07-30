@@ -349,6 +349,28 @@ public class Servicios {
 		}
 
 	}
+	
+		/**
+	 * Lista las peliculas no vistas por un determinado usuario
+	 * @param none
+	 * @return void
+	 */
+	public void listarPeliculasNoVistas() {
+		logger.debug("Ejecutando metodo listarPeliculasNoVistas en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id del Usuario a consultar");
+			if (ud.obtenerUsuario(id) == null) {
+				logger.error("El usuario introducido no existe");
+			} else {
+				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasNoVistas(id)); 
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("Excepcion servicios.listarPeliculasNoVistas. " + e.getMessage());
+		}
+	}
 }
 
 
