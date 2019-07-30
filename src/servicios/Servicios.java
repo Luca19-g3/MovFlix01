@@ -305,12 +305,12 @@ public class Servicios {
 	 * @param none
 	 * @return void
 	 */
-	public void listarPeliculasPeliculasMasValoradas() {
+	public void listarPeliculasPeliculasMasVistas() {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
 		int limite;
 		try {
 		limite = Datos.recogeInt("Introduce el limite de peliculas que quieres listar");
-		VistaPelicula.mostrarPeliculasMasValoradas(pd.obtenerPeliculasMasValoradas(limite));
+		VistaPelicula.mostrarPeliculasMasVistas(pd.obtenerPeliculasMasVistas(limite));
 		}
 		catch (Exception e) {
 			logger.error("Este limite no es correcto");

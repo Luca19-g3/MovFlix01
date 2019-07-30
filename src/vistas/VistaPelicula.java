@@ -40,11 +40,11 @@ public class VistaPelicula {
 
 	}
 	
-	public static void mostrarPeliculasMasValoradas(List<String> peliculas) {
-		logger.debug("Ejecutando metodo mostrarPeliculasMasValoradas(List<String> peliculas)");
+	public static void mostrarPeliculasMasVistas(List<String> peliculas) {
+		logger.debug("Ejecutando metodo mostrarPeliculasMasVistas(List<String> peliculas)");
 		StringBuilder listado = new StringBuilder();
 		
-		listado.append("**********************\nListado de todas las peliculas mas valoradas:\n");
+		listado.append("**********************\nListado de todas las peliculas mas vistas:\n");
 		for(String p:peliculas) {
 
 		listado.append(p+"\n");

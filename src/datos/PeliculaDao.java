@@ -193,8 +193,8 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return List<Pelicula> | null
 	 */
 
-	public List<String> obtenerPeliculasMasValoradas(int limite) {
-		logger.debug("Ejecutando metodo obtenerPeliculasMasValoradas() en la clase PeliculaDao");
+	public List<String> obtenerPeliculasMasVistas(int limite) {
+		logger.debug("Ejecutando metodo obtenerPeliculasMasVistas() en la clase PeliculaDao");
 		List<String> peliculas = new ArrayList<String>();
 
 
