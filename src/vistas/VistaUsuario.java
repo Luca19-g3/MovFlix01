@@ -32,7 +32,7 @@ public class VistaUsuario {
 		logger.debug("Ejecutando metodo mostrarListaUsuarios en la clase VistaUsuario");
 		StringBuilder listado1 = new StringBuilder();
 
-		listado1.append("**********************\nListado de usuarioss:\n");
+		listado1.append("**********************\nListado de usuarios:\n");
 		for (Usuario u : usuarios) {
 			listado1.append(
 					"Id: " + u.getId_usuario() + " | Nombre: " + u.getNombre_completo() + " | fecha de nacimiento: "

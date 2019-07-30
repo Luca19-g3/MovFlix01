@@ -126,10 +126,5 @@ public class UsuarioDao implements IUsuarioDao {
 		}
 	}
 
-	@Override
-	public void bajaUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
