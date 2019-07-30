@@ -43,7 +43,7 @@ public class Servicios {
 	 */
 	public void listarPeliculas() {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
-		VistaPelicula.mostrarListaPeliculas(pd.listarPelicula());
+		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas());
 	}
 	/**
 	 * Da de alta un usuario
