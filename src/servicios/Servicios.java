@@ -328,11 +328,22 @@ public class Servicios {
 	 * @return void
 	 */
 	public void listarPeliculasPeliculasMasValoradas() {
-		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
+		logger.debug("Ejecutando metodo listarPeliculasMasValoradas en la clase Servicios");
 		int limite;
 		try {
 			limite = Datos.recogeInt("Introduce el limite de peliculas que quieres listar");
 			VistaPelicula.mostrarPeliculasMasValoradas(pd.obtenerPeliculasMasValoradas(limite));
+		} catch (Exception e) {
+			logger.error("Este limite no es correcto");
+		}
+
+	}
+	public void listarPeliculasPeliculasMasVistas() {
+		logger.debug("Ejecutando metodo listarPeliculasMasVistas en la clase Servicios");
+		int limite;
+		try {
+			limite = Datos.recogeInt("Introduce el limite de peliculas que quieres listar");
+			VistaPelicula.mostrarPeliculasMasVistas(pd.obtenerPeliculasMasVistas(limite));
 		} catch (Exception e) {
 			logger.error("Este limite no es correcto");
 		}

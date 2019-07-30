@@ -17,10 +17,9 @@ public class Main {
 	public static void main(String[] args) {
 
 
-		//MovieFlix mo = new MovieFlix();
-		//mo.iniciarAplicacion();
-		 Servicios s =  new Servicios();
-		 s.obtenerPeliculasFilPorCategoria();
+		MovieFlix mo = new MovieFlix();
+		mo.iniciarAplicacion();
+
 		 
 
 	}
