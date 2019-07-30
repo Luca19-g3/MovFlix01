@@ -133,8 +133,29 @@ public class Servicios {
 		cd.altaCategoria(c);
 	}
 
+	/**
+	 * Método para modificar el usuario solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void modificarUsuario() {
-
+		logger.debug("Ejecutando metodo modificarUsuario en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id del usuario a modificar");
+			if(ud.obtenerUsuario(id) == null) {
+				logger.error("El usuario que intenta eliminar no existe");
+			}else {
+				if(ud.bajaUsuario(id)) {
+					logger.debug("El usuario ha sido modificado correctamente");
+				}else {
+					logger.error("Hubo un problema al intentar modificar el usuario. El usuario no ha sido modificado.");
+				}
+			}
+		}catch(Exception e) {
+			logger.error("Excepción servicios.modificarUsuario. " + e.getMessage());
+		}
 	}
 
 	public void modificarCategoria() {
