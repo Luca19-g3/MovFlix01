@@ -152,6 +152,29 @@ public class UsuarioDao implements IUsuarioDao {
 			return null;
 		}
 	}
+	/**
+	 * Obtiene una lista de las peliculas vistas por el usuarrio dado su id
+	 * 
+	 * @param int id del usuario
+	 * @return List<Pelicula> | null 
+	 */
+	public List<Pelicula> obtenerPeliculasVistas(int id){
+		logger.debug("Ejecutando metodo obtenerPeliculasVistas(id) en la clase UsuarioDao");
+		List<Pelicula> peliculas = new ArrayList<Pelicula>();
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("Select * From Peliculas Where idPeliculas" + 
+					" IN(select id_Peliculas FROM PeliculasVistas Where id_usuarios = " + id + ")");
+
+			while (rs.next()) {
+				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
+			}
+			return peliculas;
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+			return null;
+		}
+	}
 	
 	/**
 	 * Obtiene una una lista de peliculas vistas dado el id de un usuario
