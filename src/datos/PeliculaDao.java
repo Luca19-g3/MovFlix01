@@ -33,11 +33,10 @@ public class PeliculaDao implements IPeliculasDao {
 		
 		
 		try {
-
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
-			System.out.println("a�adido correctamente");
+			System.out.println("añadido correctamente");
 			//st.execute(sql);
 
 		
@@ -47,7 +46,7 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	/**
-	 * Método que obtiene todas las películas guardadas en la base de datos.
+	 * MÃ©todo que obtiene todas las pelÃ­culas guardadas en la base de datos.
 	 * 
 	 * @param none
 	 * @return List<Pelicula> | null
@@ -87,7 +86,7 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
-			System.out.println("a�adido correctamente");
+			System.out.println("añadido correctamente");
 		
 
 			System.out.println(sql);
