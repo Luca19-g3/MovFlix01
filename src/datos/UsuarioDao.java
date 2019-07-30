@@ -71,22 +71,47 @@ public class UsuarioDao {
 	 * @return boolean 
 	 */
 	
-	public boolean bajaUsuario (int id) {
-	
-		boolean eliminar=false;
+	public void bajaUsuario (int id) {
 				
 		
 		try {
 			st = con.getConnection().createStatement();
-	 eliminar = st.execute("DELETE FROM Usuarios WHERE idUsuarios="+id);
+			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios ="+id);
+			System.out.println(i);
 			
-	System.out.println(eliminar);
 			
 		} catch (SQLException e) {
 			System.out.println("Error");
 			e.printStackTrace();
 		}		
-		return eliminar;
+		
+	}
+	
+	/**
+	 * Metodo que modifica usuarios en la base de datos dado su id.
+	 * 
+	 * @param int id del usuario
+	 * @return void 
+	 */
+	public void modificarUsuario(Usuario us, int id) {
+
+		try {
+			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha de nacimiento= '" + us.getFecha_nacimiento()
+					+ "' WHERE idUsuarios=" + id;
+			
+			st = con.getConnection().createStatement();
+
+			int i = st.executeUpdate(sql);
+			System.out.println("añadido correctamente");
+		
+
+			System.out.println(sql);
+
+
+			
+		} catch (SQLException ex) {
+
+		}
 	}
 
 }
