@@ -2,10 +2,23 @@ package vistas;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import control.MovieFlix;
 import modelo.Pelicula;
 import modelo.Usuario;
 
 public class VistaUsuario {
+	// Logger
+	private static Logger logger;
+	static {
+		try {
+			logger = LogManager.getLogger(MovieFlix.class);
+		} catch (Throwable e) {
+			System.out.println("Logger Don't work");
+		}
+	}
 
 	/**
 	 * 
@@ -16,6 +29,7 @@ public class VistaUsuario {
 	 * 
 	 */
 	public static void mostrarListaUsuarios(List<Usuario> usuarios) {
+		logger.debug("Ejecutando metodo mostrarListaUsuarios en la clase VistaUsuario");
 		StringBuilder listado1 = new StringBuilder();
 
 		listado1.append("**********************\nListado de todas las peliculas:\n");

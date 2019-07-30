@@ -24,7 +24,7 @@ public class Menu {
 	 */
 
 	public static void mostrarMenu() {
-		logger.trace("Ejecutando menu");
+		logger.debug("Ejecutando menu");
 		System.out.println(" ");
 		System.out.println(" MovieFlix ");
 		System.out.println(" ");

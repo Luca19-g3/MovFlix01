@@ -2,9 +2,22 @@ package vistas;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import control.MovieFlix;
 import modelo.Pelicula;
 
 public class VistaPelicula {
+	// Logger
+	private static Logger logger;
+	static {
+		try {
+			logger = LogManager.getLogger(MovieFlix.class);
+		} catch (Throwable e) {
+			System.out.println("Logger Don't work");
+		}
+	}
   
   /**
 	 * 
@@ -14,6 +27,7 @@ public class VistaPelicula {
 	 */
 	
 	public static void mostrarListaPeliculas(List<Pelicula> peliculas) {
+		logger.debug("Ejecutando metodo mostrarListaPeliculas() en la clase VistaPelicula");
 		StringBuilder listado = new StringBuilder();
 		
 		listado.append("**********************\nListado de todas las peliculas:\n");

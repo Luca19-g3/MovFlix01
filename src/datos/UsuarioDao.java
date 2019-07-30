@@ -36,7 +36,7 @@ public class UsuarioDao {
 	 * @param u
 	 */
 	public static void altaUsuario(Usuario u) {
-		logger.trace("Ejecutando metodo altaUsuario() en la clase UsuarioDao");
+		logger.debug("Ejecutando metodo altaUsuario() en la clase UsuarioDao");
 		String sql = "INSERT INTO Usuarios (Nombre,Fecha_nacimiento,CiudadResidencia) values('" + u.getNombre_completo()
 				+ "','" + u.getFecha_nacimiento() + "','" + u.getCiudad_residencia() + "')";
 
@@ -45,11 +45,11 @@ public class UsuarioDao {
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
-			System.out.println("añadido correctamente");
-			// st.execute(sql);
+			logger.info(sql);
+			logger.info("Añadido correctamente");
 
 		} catch (SQLException ex) {
-			System.out.println(ex);
+			logger.error("Error" +ex);
 		}
 	}
 
@@ -61,7 +61,7 @@ public class UsuarioDao {
 	 */
 
 	public static List<Usuario> listarUsuario() {
-		logger.trace("Ejecutando metodo listarUsuario() en la clase UsuarioDao");
+		logger.debug("Ejecutando metodo listarUsuario() en la clase UsuarioDao");
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 
 		try {
@@ -75,7 +75,7 @@ public class UsuarioDao {
 			return usuarios;
 
 		} catch (SQLException ex) {
-			System.out.println("Error!" + ex.getMessage());
+			logger.error("Error" +ex.getMessage());
 			return null;
 		}
 	}
@@ -88,15 +88,15 @@ public class UsuarioDao {
 	
 	public void bajaUsuario (int id) {
 				
-		logger.trace("Ejecutando metodo bajaUsuario() en la clase UsuarioDao");
+		logger.debug("Ejecutando metodo bajaUsuario() en la clase UsuarioDao");
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios ="+id);
-			System.out.println(i);
-			
+
+			logger.info("Eliminado correctamente");
 			
 		} catch (SQLException e) {
-			System.out.println("Error");
+			logger.error("Error");
 			e.printStackTrace();
 		}		
 		
@@ -109,7 +109,7 @@ public class UsuarioDao {
 	 * @return void 
 	 */
 	public void modificarUsuario(Usuario us, int id) {
-		logger.trace("Ejecutando metodo modificarUsuario() en la clase UsuarioDao");
+		logger.debug("Ejecutando metodo modificarUsuario() en la clase UsuarioDao");
 		try {
 			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha de nacimiento= '" + us.getFecha_nacimiento()
 					+ "' WHERE idUsuarios=" + id;
@@ -117,15 +117,13 @@ public class UsuarioDao {
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
-			System.out.println("añadido correctamente");
-		
-
-			System.out.println(sql);
+			logger.info(sql);
+			logger.info("Modificado correctamente");
 
 
 			
 		} catch (SQLException ex) {
-
+			logger.error("Error" +ex);
 		}
 	}
 

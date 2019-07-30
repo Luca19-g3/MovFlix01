@@ -41,17 +41,18 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return void
 	 */
 	public void altaPelicula(Pelicula p) {
-		logger.trace("Ejecutando metodo altaPelicula() en la clase PeliculaDao");
+		logger.debug("Ejecutando metodo altaPelicula() en la clase PeliculaDao");
 		String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','"
 				+ p.getAnho_estreno() + "','" + p.getCategoria() + "')";
 		System.out.println(sql);
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate(sql);
-			System.out.println("añadido correctamente");
+			logger.info(sql);
+			logger.info("A�adido correctamente");
 			// st.execute(sql);
 		} catch (SQLException ex) {
-			System.out.println(ex);
+			logger.error("Error" +ex);
 		}
 	}
 
@@ -63,7 +64,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 */
 
 	public List<Pelicula> listarPelicula() {
-		logger.trace("Ejecutando metodo listarPelicula() en la clase PeliculaDao");
+		logger.debug("Ejecutando metodo listarPelicula() en la clase PeliculaDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
 		try {
@@ -77,7 +78,8 @@ public class PeliculaDao implements IPeliculasDao {
 			return peliculas;
 
 		} catch (SQLException ex) {
-			System.out.println("Error!" + ex.getMessage());
+			logger.error("Error "+ ex.getMessage());
+
 			return null;
 		}
 	}
@@ -89,7 +91,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return void
 	 */
 	public void modificarPelicula(Pelicula p, int id) {
-		logger.trace("Ejecutando metodo modificarPelicula() en la clase PeliculaDao");
+		logger.debug("Ejecutando metodo modificarPelicula() en la clase PeliculaDao");
 		try {
 			String sql = "UPDATE Peliculas SET Nombre= '" + p.getNombre() + "', Ano_estreno= '" + p.getAnho_estreno()
 					+ "' WHERE idPeliculas=" + id;
@@ -97,12 +99,13 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
-			System.out.println("añadido correctamente");
+			logger.info(sql);
+			logger.info("Modificado correctamente");
 
-			System.out.println(sql);
+
 
 		} catch (SQLException ex) {
-
+			logger.error("Error" +ex);
 		}
 
 	}
@@ -114,7 +117,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return boolean
 	 */
 	public boolean bajaPelicula(int id) {
-		logger.trace("Ejecutando metodo bajaPelicula() en la clase PeliculaDao");
+		logger.debug("Ejecutando metodo bajaPelicula() en la clase PeliculaDao");
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate("DELETE FROM Peliculas WHERE idPeliculas =" + id);
@@ -122,7 +125,7 @@ public class PeliculaDao implements IPeliculasDao {
 
 			return true;
 		} catch (SQLException e) {
-			System.out.println("Error");
+			logger.error("Error");
 			e.printStackTrace();
 			return false;
 		}

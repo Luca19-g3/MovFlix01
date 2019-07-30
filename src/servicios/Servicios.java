@@ -34,12 +34,12 @@ public class Servicios {
 	}
 
 	public void listarPeliculas() {
-		logger.trace("Ejecutando metodo listarPeliculas en la clase Servicios");
+		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
 		VistaPelicula.mostrarListaPeliculas(pd.listarPelicula());
 	}
 
 	public void altaUsuario() {
-		logger.trace("Ejecutando metodo altaUsuario en la clase Servicios");
+		logger.debug("Ejecutando metodo altaUsuario en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 	}
@@ -52,19 +52,19 @@ public class Servicios {
 	 */
 
 	public void altaPelicula() {
-		logger.trace("Ejecutando metodo altaPelicula en la clase Servicios");
+		logger.debug("Ejecutando metodo altaPelicula en la clase Servicios");
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
 		pd.altaPelicula(p);
 	}
 
 	public void listarUsuarios() {
-		logger.trace("Ejecutando metodo listarUsuarios en la clase Servicios");
+		logger.debug("Ejecutando metodo listarUsuarios en la clase Servicios");
 		VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
 	}
 
 	public void altaUsuarios() throws Exception {
-		logger.trace("Ejecutando metodo altaUsuarios en la clase Servicios");
+		logger.debug("Ejecutando metodo altaUsuarios en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 		UsuarioDao.altaUsuario(usu);
