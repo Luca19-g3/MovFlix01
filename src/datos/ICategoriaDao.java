@@ -5,7 +5,7 @@ import java.util.List;
 import modelo.Categoria;
 
 public interface ICategoriaDao {
-	public void altaCategoria();
+	public void altaCategoria(Categoria c);
 	public void modificarCategoria(Categoria c, int id);
 	public boolean bajaCategoria(int i);
 	public List<Categoria> listarCategoria();

@@ -102,7 +102,7 @@ public class Servicios {
 		logger.debug("Ejecutando metodo altaCategoria() en la clase Servicios");
 		Categoria c = new Categoria();
 		c.crearCategoria();
-		cd.altaCategoria();
+		cd.altaCategoria(c);
 	}
 	
 	public void modificarUsuario() {

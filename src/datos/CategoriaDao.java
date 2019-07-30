@@ -29,9 +29,29 @@ public class CategoriaDao implements ICategoriaDao {
 	static ResultSet rs = null;
 	static PreparedStatement ps = null;
 	static Conexion con = new Conexion();
+	
+	/**
+	 * Da de alta a nuevas categorias
+	 * 
+	 * @param Categoria
+	 */
 
 	@Override
-	public void altaCategoria() {
+	public void altaCategoria(Categoria c) {
+		logger.debug("Ejecutando metodo altaCategoria() en la clase CategoriaDao");
+		String sql = "INSERT INTO Categorias (Nombre) values('" + c.getNombre() + "')";
+
+		try {
+
+			st = con.getConnection().createStatement();
+
+			int i = st.executeUpdate(sql);
+			logger.info(sql);
+			logger.info("Añadido correctamente");
+
+		} catch (SQLException ex) {
+			logger.error("Error" + ex);
+		}
 
 	}
 
@@ -80,7 +100,6 @@ public class CategoriaDao implements ICategoriaDao {
 			return false;
 		}
 
-		
 	}
 
 	@Override
