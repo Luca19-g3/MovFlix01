@@ -181,11 +181,7 @@ public class PeliculaDao implements IPeliculasDao {
 
 	}
 
-	@Override
-	public List<Pelicula> obtenerPeliculas(String filtro, int nresultados) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	/**
 	 * Metodo que obtiene las peliculas mas valoradas.
 	 * 
@@ -221,11 +217,10 @@ System.out.println(peliculas.toString());
 		}
 	}
 
-	@Override
-	public List<Pelicula> obtenerPeliculas(String filtro) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
+
+
 
 
 }
