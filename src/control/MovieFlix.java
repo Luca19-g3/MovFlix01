@@ -18,7 +18,7 @@ public class MovieFlix {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
@@ -26,7 +26,7 @@ public class MovieFlix {
 
 	
 	/**
-	 * Metodo para iniciar la aplicación
+	 * Metodo para iniciar la aplicacion
 	 * @param: none
 	 * @return: void 
 	 */
@@ -61,15 +61,16 @@ public class MovieFlix {
 			switch (Datos.recogeInt()) {
 			case 1:
 				logger.debug("Ha elegido la opcion 1");
-				servicio.altaPelicula();
-
+				
 				break;
 			case 2:
 				logger.debug("Ha elegido la opcion 2");
+				
 				break;
 
 			case 3:
 				logger.debug("Ha elegido la opcion 3");
+				servicio.bajaPelicula();
 				break;
 
 			case 4:
