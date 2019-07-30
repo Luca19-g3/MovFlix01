@@ -25,7 +25,7 @@ public class MovieFlix {
 
 	
 	/**
-	 * Método para iniciar la aplicación
+	 * Metodo para iniciar la aplicación
 	 * @param: none
 	 * @return: void 
 	 */
@@ -48,7 +48,7 @@ public class MovieFlix {
 	Servicios servicio = new Servicios();
 	
 	/**
-	 * Método que gestiona la elección de opciones del menú del usuario
+	 * Metodo que gestiona la elección de opciones del menú del usuario
 	 * @param: none
 	 * @return: boolean
 	 */
@@ -93,6 +93,7 @@ public class MovieFlix {
 
 			case 9:
 				logger.debug("Ha elegido la opcion 9");
+				servicio.altaCategoria();
 				break;
 				
 			case 10:

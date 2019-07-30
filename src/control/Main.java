@@ -6,6 +6,7 @@ import datos.UsuarioDao;
 import modelo.Categoria;
 import modelo.Pelicula;
 import modelo.Usuario;
+import servicios.Servicios;
 import vistas.VistaPelicula;
 import vistas.VistaUsuario;
 
@@ -32,7 +33,9 @@ public class Main {
 		//d.modificarCategoria(new Categoria("modificada"), 6);
 		//d.bajaCategoria(5);
 		
-		d.altaCategoria(new Categoria("independiente"));
+		//d.altaCategoria(new Categoria("independiente"));
+		Servicios s = new Servicios();
+		s.bajaPelicula();
 		
 		
 	}
