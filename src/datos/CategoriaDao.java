@@ -11,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 
 import control.MovieFlix;
 import modelo.Categoria;
+import modelo.Pelicula;
+import modelo.Usuario;
 import utilidades.Conexion;
 
 public class CategoriaDao implements ICategoriaDao {
@@ -100,6 +102,30 @@ public class CategoriaDao implements ICategoriaDao {
 			return false;
 		}
 
+	}	
+	/**
+	 * obtiene la categoria con la id correspondiente
+	 * 
+	 * @param id
+	 * @return boolean
+	 */
+	
+	public Categoria obtenerCategoria(int id) {
+		logger.debug("Ejecutando metodo obtenerCategoria(id) en la clase CategoriaDao");
+		Pelicula p = new Pelicula();
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Categorias WHERE idCategorias = " + id);
+						
+			while (rs.next()) {
+				return new Categoria(rs.getInt(1),rs.getString(2));
+			}
+			
+			return null;
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+			return null;
+		}
 	}
 
 	@Override

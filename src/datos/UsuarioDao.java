@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import control.MovieFlix;
 import utilidades.Conexion;
+import modelo.Pelicula;
 import modelo.Usuario;
 
 public class UsuarioDao implements IUsuarioDao {
@@ -122,6 +123,31 @@ public class UsuarioDao implements IUsuarioDao {
 
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
+		}
+	}
+	
+	/**
+	 * Obtiene una pelicula dado un determinado id
+	 * 
+	 * @param int id del usuario
+	 * @return Pelicula | null
+	 */
+	@Override
+	public Usuario obtenerUsuario(int id) {
+		logger.debug("Ejecutando metodo obtenerUsuario(id) en la clase UsuarioDao");
+		Pelicula p = new Pelicula();
+		try {
+			st = con.getConnection().createStatement();
+			rs = st.executeQuery("SELECT * FROM Usuarios WHERE idUsuarios = " + id);
+						
+			while (rs.next()) {
+				return new Usuario(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4));
+			}
+			
+			return null;
+		} catch (SQLException ex) {
+			logger.error("Error " + ex.getMessage());
+			return null;
 		}
 	}
 
