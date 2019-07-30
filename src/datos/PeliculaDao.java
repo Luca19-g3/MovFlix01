@@ -19,34 +19,31 @@ public class PeliculaDao implements IPeliculasDao {
 	static PreparedStatement ps = null;
 	static Conexion con = new Conexion();
 
+	
 	/*
 	 * Metodo para dar altas peliculas
+	 *
 	 * @author Jorge
 	 * @param  Pelicula
 	 * @return void
 	 */
 	public  void altaPelicula(Pelicula p) {
-	
 		 String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','" + p.getAnho_estreno()
 		 + "','" + p.getCategoria() + "')";
 		 System.out.println(sql);
-		
-		
 		try {
 			st = con.getConnection().createStatement();
-
 			int i = st.executeUpdate(sql);
 			System.out.println("añadido correctamente");
 			//st.execute(sql);
-
-		
 		} catch (SQLException ex) {
 			System.out.println(ex);
 		}
 	}
 
+	
 	/**
-	 * MÃ©todo que obtiene todas las pelÃ­culas guardadas en la base de datos.
+	 * Metodo que obtiene todas las peliculas guardadas en la base de datos.
 	 * 
 	 * @param none
 	 * @return List<Pelicula> | null
