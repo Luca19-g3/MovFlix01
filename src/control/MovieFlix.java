@@ -8,15 +8,15 @@ public class MovieFlix {
 	public void iniciarAplicacion() {
 		boolean seguir = true;
 		do {
-			//
+		//
 		} while (seguir);
 		System.out.println("---Fin de la sesion---");
-
 	}
 
+	
 	/**
 	 * @param: none
-	 * @return: void en esta parte se creará un objeto de la interfaz IServicios
+	 * @return: void en esta parte se crearÃ¡ un objeto de la interfaz IServicios
 	 */
 	Servicios servicio = new Servicios();
 
@@ -67,9 +67,10 @@ public class MovieFlix {
 		return continuar;
 	}
 
+	
 	/*
 	 * private boolean salir() throws Exception { String sino =
-	 * Datos.recogeString("   ¿Está seguro?(S/N)"); return
+	 * Datos.recogeString("   Â¿EstÃ¡ seguro?(S/N)"); return
 	 * (sino.toUpperCase().charAt(0) != 'S');
 	 */
 }
