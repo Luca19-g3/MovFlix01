@@ -10,7 +10,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import control.MovieFlix;
-import modelo.Pelicula;
 import utilidades.Conexion;
 import modelo.Usuario;
 

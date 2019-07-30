@@ -7,5 +7,5 @@ public interface IUsuarioDao {
 	public void altaUsuario(Usuario usuario);
 	public List<Usuario> listarUsuario();
 	public void modificarUsuario(Usuario usuario, int id);
-	public void bajaUsuario(Usuario usuario);
+	public void bajaUsuario(int id);
 }
