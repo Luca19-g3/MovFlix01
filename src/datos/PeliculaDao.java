@@ -8,40 +8,53 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import control.MovieFlix;
 import modelo.Pelicula;
 import modelo.Usuario;
 import utilidades.Conexion;
 
 public class PeliculaDao implements IPeliculasDao {
+	// Logger
+	private static Logger logger;
+	static {
+		try {
+			logger = LogManager.getLogger(MovieFlix.class);
+		} catch (Throwable e) {
+			System.out.println("Logger Don't work");
+		}
+	}
 
 	static Statement st = null;
 	static ResultSet rs = null;
 	static PreparedStatement ps = null;
 	static Conexion con = new Conexion();
 
-	
 	/*
 	 * Metodo para dar altas peliculas
 	 *
-	 * @author Jorge
-	 * @param  Pelicula
+	 * 
+	 * @param Pelicula
+	 * 
 	 * @return void
 	 */
-	public  void altaPelicula(Pelicula p) {
-		 String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','" + p.getAnho_estreno()
-		 + "','" + p.getCategoria() + "')";
-		 System.out.println(sql);
+	public void altaPelicula(Pelicula p) {
+		logger.trace("Ejecutando metodo altaPelicula() en la clase PeliculaDao");
+		String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','"
+				+ p.getAnho_estreno() + "','" + p.getCategoria() + "')";
+		System.out.println(sql);
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate(sql);
 			System.out.println("añadido correctamente");
-			//st.execute(sql);
+			// st.execute(sql);
 		} catch (SQLException ex) {
 			System.out.println(ex);
 		}
 	}
 
-	
 	/**
 	 * Metodo que obtiene todas las peliculas guardadas en la base de datos.
 	 * 
@@ -50,7 +63,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 */
 
 	public List<Pelicula> listarPelicula() {
-
+		logger.trace("Ejecutando metodo listarPelicula() en la clase PeliculaDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
 		try {
@@ -68,55 +81,52 @@ public class PeliculaDao implements IPeliculasDao {
 			return null;
 		}
 	}
+
 	/**
 	 * Metodo para modificar las peliculas
-	 * @author Jorge
-	 * @param  none
+	 * 
+	 * @param Pelicula , id
 	 * @return void
 	 */
 	public void modificarPelicula(Pelicula p, int id) {
-
+		logger.trace("Ejecutando metodo modificarPelicula() en la clase PeliculaDao");
 		try {
 			String sql = "UPDATE Peliculas SET Nombre= '" + p.getNombre() + "', Ano_estreno= '" + p.getAnho_estreno()
 					+ "' WHERE idPeliculas=" + id;
-			
+
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
 			System.out.println("añadido correctamente");
-		
 
 			System.out.println(sql);
 
-
-			
 		} catch (SQLException ex) {
 
 		}
-		
 
 	}
+
 	/**
-	 * baja a la pelicula con la id correspondiente 
-	 * @param  id Pelicula
-	 * @return boolean 
+	 * baja a la pelicula con la id correspondiente
+	 * 
+	 * @param id
+	 * @return boolean
 	 */
-	public boolean bajaPelicula(int id){
-	
-			try {
-				st = con.getConnection().createStatement();
-				int i = st.executeUpdate("DELETE FROM Peliculas WHERE idPeliculas ="+id);
-				System.out.println(i);
-				
-				return true;
-			} catch (SQLException e) {
-				System.out.println("Error");
-				e.printStackTrace();
-				return false;
-			}		
-			
+	public boolean bajaPelicula(int id) {
+		logger.trace("Ejecutando metodo bajaPelicula() en la clase PeliculaDao");
+		try {
+			st = con.getConnection().createStatement();
+			int i = st.executeUpdate("DELETE FROM Peliculas WHERE idPeliculas =" + id);
+			System.out.println(i);
+
+			return true;
+		} catch (SQLException e) {
+			System.out.println("Error");
+			e.printStackTrace();
+			return false;
+		}
+
 	}
-
-
 
 }

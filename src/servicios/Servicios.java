@@ -1,4 +1,9 @@
 package servicios;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import control.MovieFlix;
 import datos.IUsuarioDao;
 import datos.PeliculaDao;
 import datos.UsuarioDao;
@@ -11,52 +16,58 @@ import vistas.VistaUsuario;
 //1.17. Crear la clase Servicios en el paquete servicios con el método public boolean altaPelicula() [PDS]
 
 public class Servicios {
-	
-	private PeliculaDao pd =  new PeliculaDao();
+	// Logger
+	private static Logger logger;
+	static {
+		try {
+			logger = LogManager.getLogger(MovieFlix.class);
+		} catch (Throwable e) {
+			System.out.println("Logger Don't work");
+		}
+	}
+
+	private PeliculaDao pd = new PeliculaDao();
 	private UsuarioDao ud = new UsuarioDao();
 
 	public Servicios() {
 
 	}
 
-
-	
 	public void listarPeliculas() {
+		logger.trace("Ejecutando metodo listarPeliculas en la clase Servicios");
 		VistaPelicula.mostrarListaPeliculas(pd.listarPelicula());
 	}
 
-
 	public void altaUsuario() {
-		
+		logger.trace("Ejecutando metodo altaUsuario en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 	}
 
-	
 	/**
 	 * Da de alta una pelicula
-	 * @param  none
+	 * 
+	 * @param none
 	 * @return void
 	 */
-	
+
 	public void altaPelicula() {
-		
+		logger.trace("Ejecutando metodo altaPelicula en la clase Servicios");
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
 		pd.altaPelicula(p);
 	}
 
-
-
-
 	public void listarUsuarios() {
+		logger.trace("Ejecutando metodo listarUsuarios en la clase Servicios");
 		VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
 	}
+
 	public void altaUsuarios() throws Exception {
+		logger.trace("Ejecutando metodo altaUsuarios en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 		UsuarioDao.altaUsuario(usu);
 	}
-	
 
 }
