@@ -10,11 +10,18 @@ public class Categoria {
 		super();
 	}
 
+
+	public Categoria (String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 	public Categoria(int idcategoria, String nombre) {
 		super();
 		this.idcategoria = idcategoria;
 		this.nombre = nombre;
 	}
+
 
 	public int getIdcategoria() {
 		return idcategoria;
