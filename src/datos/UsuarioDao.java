@@ -33,7 +33,7 @@ public class UsuarioDao {
 	/**
 	 * añade un usuario en la base de datos
 	 * 
-	 * @param u
+	 * @param usuario
 	 */
 	public static void altaUsuario(Usuario u) {
 		logger.debug("Ejecutando metodo altaUsuario() en la clase UsuarioDao");

@@ -32,12 +32,22 @@ public class Servicios {
 	public Servicios() {
 
 	}
-
+	/**
+	 * Lista las peliculas
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void listarPeliculas() {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
 		VistaPelicula.mostrarListaPeliculas(pd.listarPelicula());
 	}
-
+	/**
+	 * Da de alta un usuario
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void altaUsuario() {
 		logger.debug("Ejecutando metodo altaUsuario en la clase Servicios");
 		Usuario usu = new Usuario();
@@ -57,12 +67,22 @@ public class Servicios {
 		p.crearPelicula();
 		pd.altaPelicula(p);
 	}
-
+	/**
+	 * Lista los usuarios
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void listarUsuarios() {
 		logger.debug("Ejecutando metodo listarUsuarios en la clase Servicios");
 		VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
 	}
-
+	/**
+	 * Da de alta un usuario
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void altaUsuarios() throws Exception {
 		logger.debug("Ejecutando metodo altaUsuarios en la clase Servicios");
 		Usuario usu = new Usuario();
