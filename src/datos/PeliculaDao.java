@@ -64,7 +64,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 */
 
 	public List<Pelicula> obtenerPeliculas() {
-		logger.debug("Ejecutando metodo listarPelicula() en la clase PeliculaDao");
+		logger.debug("Ejecutando metodo obtenerPeliculas() en la clase PeliculaDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
 		try {
@@ -156,6 +156,18 @@ public class PeliculaDao implements IPeliculasDao {
 			logger.error("Error " + ex.getMessage());
 			return null;
 		}
+	}
+
+	@Override
+	public List<Pelicula> obtenerPeliculas(String flitro) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Pelicula> obtenerPeliculas(String filtro, int nresultados) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
