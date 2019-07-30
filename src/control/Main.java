@@ -14,9 +14,9 @@ public class Main {
 
 //PeliculaDao.modificarPelicula(new Pelicula("La sota de oros", 2020, "2"),30);
 
-<<<<<<< HEAD
+
 //VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
-=======
+
 		PeliculaDao pd =  new PeliculaDao();
 		UsuarioDao ud = new UsuarioDao();
 		
@@ -29,7 +29,7 @@ VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
 
 		//VistaPelicula.mostrarListaPeliculas(PeliculaDao.listarPelicula());
 
->>>>>>> de1ca974d233350a37e39841e8e6b80c2c2647ca
+
 
 		
 	}

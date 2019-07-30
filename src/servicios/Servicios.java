@@ -25,13 +25,13 @@ public class Servicios {
 		VistaPelicula.mostrarListaPeliculas(pd.listarPelicula());
 	}
 
-<<<<<<< HEAD
+
 	public void altaUsuario() {
 		
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
 	}
-=======
+
 	
 	/**
 	 * Da de alta una pelicula
@@ -47,7 +47,7 @@ public class Servicios {
 	}
 
 
->>>>>>> de1ca974d233350a37e39841e8e6b80c2c2647ca
+
 
 	public void listarUsuarios() {
 		VistaUsuario.mostrarListaUsuarios(UsuarioDao.listarUsuario());
