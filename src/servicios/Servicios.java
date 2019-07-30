@@ -1,3 +1,5 @@
+
+
 package servicios;
 
 import java.util.List;
@@ -49,21 +51,37 @@ public class Servicios {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
 		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas());
 	}
-	
+	/**
+	 * Lista las categorias
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void listarCategorias() {
+		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
+		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
+	}
+
+	/**
+	 * Lista las peliculas filtradas por categoria
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void obtenerPeliculasFilPorCategoria() {
 		logger.debug("Ejecutando metodo listar peliculas filtradas por categoria");
-		
+
 		try {
 			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
-			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")));
-			
+			VistaPelicula
+					.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")));
+
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 			logger.error("Excepcion servicios.obtenerPeliculasPorCategoria. " + e.getMessage());
 		}
-		
-		
+
 	}
 
 	/**
@@ -91,6 +109,7 @@ public class Servicios {
 		p.crearPelicula();
 		pd.altaPelicula(p);
 	}
+
 	/**
 	 * Metodo para dar de baja una pelicula solicitando un id por consola.
 	 * 
@@ -171,7 +190,7 @@ public class Servicios {
 			if (ud.obtenerUsuario(id) == null) {
 				logger.error("El usuario que intenta eliminar no existe");
 			} else {
-				Usuario u =  new Usuario();
+				Usuario u = new Usuario();
 				u.crearUsuario();
 				if (ud.modificarUsuario(u, id)) {
 					logger.debug("El usuario ha sido modificado correctamente");
@@ -184,6 +203,7 @@ public class Servicios {
 			logger.error("Excepcion servicios.modificarUsuario. " + e.getMessage());
 		}
 	}
+
 	/**
 	 * Método para modificar la categoria solicitando un id por consola.
 	 * 
@@ -198,9 +218,9 @@ public class Servicios {
 			if (cd.obtenerCategoria(id) == null) {
 				logger.error("La categoria que intenta modificar no existe");
 			} else {
-				Categoria ca =  new Categoria();
+				Categoria ca = new Categoria();
 				ca.crearCategoria();
-				if (cd.modificarCategoria(ca, id))  {
+				if (cd.modificarCategoria(ca, id)) {
 					logger.debug("La categoria ha sido modificado correctamente");
 				} else {
 					logger.error(
@@ -212,6 +232,7 @@ public class Servicios {
 		}
 
 	}
+
 	/**
 	 * Método para modificar la Pelicula solicitando un id por consola.
 	 * 
@@ -226,9 +247,9 @@ public class Servicios {
 			if (pd.obtenerPelicula(id) == null) {
 				logger.error("La Pelicula que intenta modificar no existe");
 			} else {
-				Pelicula pe =  new Pelicula();
+				Pelicula pe = new Pelicula();
 				pe.crearPelicula();
-				if (pd.modificarPelicula(pe, id))  {
+				if (pd.modificarPelicula(pe, id)) {
 					logger.debug("La Pelicula ha sido modificada correctamente");
 				} else {
 					logger.error(
@@ -238,10 +259,9 @@ public class Servicios {
 		} catch (Exception e) {
 			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
 		}
-		
+
 	}
-	
-	
+
 	/**
 	 * Metodo para dar de baja a una categoria solicitando un id por consola.
 	 * 
@@ -271,6 +291,7 @@ public class Servicios {
 		}
 
 	}
+
 	/**
 	 * Metodo para dar de baja a un usuario solicitando un id por consola.
 	 * 
@@ -299,22 +320,32 @@ public class Servicios {
 		}
 
 	}
+
 	/**
 	 * Lista las peliculas mas valoradas
 	 * 
 	 * @param none
 	 * @return void
 	 */
-	public void listarPeliculasPeliculasMasVistas() {
+	public void listarPeliculasPeliculasMasValoradas() {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
 		int limite;
 		try {
-		limite = Datos.recogeInt("Introduce el limite de peliculas que quieres listar");
-		VistaPelicula.mostrarPeliculasMasVistas(pd.obtenerPeliculasMasVistas(limite));
-		}
-		catch (Exception e) {
+			limite = Datos.recogeInt("Introduce el limite de peliculas que quieres listar");
+			VistaPelicula.mostrarPeliculasMasValoradas(pd.obtenerPeliculasMasValoradas(limite));
+		} catch (Exception e) {
 			logger.error("Este limite no es correcto");
 		}
-	
+
 	}
 }
+
+
+
+
+
+
+
+
+		
+		
