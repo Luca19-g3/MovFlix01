@@ -3,6 +3,7 @@ package control;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import gui.Menu;
 import servicios.Servicios;
 import utilidades.Datos;
 
@@ -35,7 +36,8 @@ public class MovieFlix {
 		logger.info("Inicio de la aplicacion----");
 		boolean seguir = true;
 		do {
-		//
+			Menu.mostrarMenu();
+            seguir = this.seleccionarOpcion();
 		} while (seguir);
 
 		logger.info("Fin de la aplicacion----");

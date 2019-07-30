@@ -14,8 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Servicios s = new Servicios();
-		//s.modificarUsuario();
-		s.modificarCategoria();
+		MovieFlix mo = new MovieFlix();
+		mo.iniciarAplicacion();
 	}
 }
