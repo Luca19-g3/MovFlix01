@@ -100,25 +100,20 @@ public class PeliculaDao implements IPeliculasDao {
 		
 
 	}
-	public void bajaPelicula(int id){
-	
-		
-					
-			
+	public boolean bajaPelicula(int id){
+		boolean r = false;
 			try {
 				st = con.getConnection().createStatement();
 				int i = st.executeUpdate("DELETE FROM Peliculas WHERE idPeliculas ="+id);
 				System.out.println(i);
 				
-				
+				r= true;
 			} catch (SQLException e) {
 				System.out.println("Error");
 				e.printStackTrace();
+				
 			}		
-			
-		
-		
-			
+			return r;
 	}
 
 
