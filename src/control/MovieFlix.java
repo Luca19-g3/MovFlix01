@@ -10,6 +10,7 @@ import utilidades.Datos;
 
 public class MovieFlix {
 
+
 	// Logger
 	private static Logger logger;
 	static {
@@ -21,24 +22,36 @@ public class MovieFlix {
 	}
 
 	
+
+	
+	/**
+	 * Método para iniciar la aplicación
+	 * @param: none
+	 * @return: void 
+	 */
+
 	public void iniciarAplicacion() {
 		
 		logger.info("Inicio de la aplicacion----");
 		boolean seguir = true;
 		do {
-			//
+		//
 		} while (seguir);
+
 		logger.info("Fin de la aplicacion----");
+
+
 
 
 	}
 
-	/**
-	 * @param: none
-	 * @return: void en esta parte se crear� un objeto de la interfaz IServicios
-	 */
 	Servicios servicio = new Servicios();
-
+	
+	/**
+	 * Método que gestiona la elección de opciones del menú del usuario
+	 * @param: none
+	 * @return: boolean
+	 */
 	public boolean seleccionarOpcion() {
 		boolean continuar = true;
 
@@ -88,9 +101,10 @@ public class MovieFlix {
 		return continuar;
 	}
 
+	
 	/*
 	 * private boolean salir() throws Exception { String sino =
-	 * Datos.recogeString("   �Est� seguro?(S/N)"); return
+	 * Datos.recogeString("   ¿Está seguro?(S/N)"); return
 	 * (sino.toUpperCase().charAt(0) != 'S');
 	 */
 }

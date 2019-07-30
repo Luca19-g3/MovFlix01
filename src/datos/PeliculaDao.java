@@ -19,35 +19,31 @@ public class PeliculaDao implements IPeliculasDao {
 	static PreparedStatement ps = null;
 	static Conexion con = new Conexion();
 
+	
 	/*
 	 * Metodo para dar altas peliculas
+	 *
 	 * @author Jorge
 	 * @param  Pelicula
 	 * @return void
 	 */
 	public  void altaPelicula(Pelicula p) {
-	
 		 String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','" + p.getAnho_estreno()
 		 + "','" + p.getCategoria() + "')";
 		 System.out.println(sql);
-		
-		
 		try {
-
 			st = con.getConnection().createStatement();
-
 			int i = st.executeUpdate(sql);
-			System.out.println("a�adido correctamente");
+			System.out.println("añadido correctamente");
 			//st.execute(sql);
-
-		
 		} catch (SQLException ex) {
 			System.out.println(ex);
 		}
 	}
 
+	
 	/**
-	 * Método que obtiene todas las películas guardadas en la base de datos.
+	 * Metodo que obtiene todas las peliculas guardadas en la base de datos.
 	 * 
 	 * @param none
 	 * @return List<Pelicula> | null
@@ -72,7 +68,7 @@ public class PeliculaDao implements IPeliculasDao {
 			return null;
 		}
 	}
-	/*
+	/**
 	 * Metodo para modificar las peliculas
 	 * @author Jorge
 	 * @param  none
@@ -87,7 +83,7 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 
 			int i = st.executeUpdate(sql);
-			System.out.println("a�adido correctamente");
+			System.out.println("añadido correctamente");
 		
 
 			System.out.println(sql);
@@ -100,6 +96,11 @@ public class PeliculaDao implements IPeliculasDao {
 		
 
 	}
+	/**
+	 * baja a la pelicula con la id correspondiente 
+	 * @param  id Pelicula
+	 * @return boolean 
+	 */
 	public boolean bajaPelicula(int id){
 	
 			try {
