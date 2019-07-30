@@ -371,6 +371,28 @@ public class Servicios {
 			logger.error("Excepcion servicios.listarPeliculasNoVistas. " + e.getMessage());
 		}
 	}
+	
+	/**
+	 * Lista las peliculas vistas por un determinado usuario
+	 * @param none
+	 * @return void
+	 */
+	public void listarPeliculasVistas() {
+		logger.debug("Ejecutando metodo listarPeliculasVistas en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id del Usuario a consultar");
+			if (ud.obtenerUsuario(id) == null) {
+				logger.error("El usuario introducido no existe");
+			} else {
+				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasVistas(id)); 
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("Excepcion servicios.listarPeliculasVistas. " + e.getMessage());
+		}
+	}
 }
 
 
