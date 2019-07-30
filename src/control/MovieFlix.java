@@ -70,10 +70,12 @@ public class MovieFlix {
 
 			case 3:
 				logger.debug("Ha elegido la opcion 3");
+				servicio.bajaPelicula();
 				break;
 
 			case 4:
 				logger.debug("Ha elegido la opcion 4");
+				servicio.listarPeliculas();
 				break;
 
 			case 5:
