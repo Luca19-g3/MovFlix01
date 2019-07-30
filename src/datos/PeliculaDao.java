@@ -90,7 +90,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @param Pelicula , id
 	 * @return void
 	 */
-	public void modificarPelicula(Pelicula p, int id) {
+	public boolean modificarPelicula(Pelicula p, int id) {
 		logger.debug("Ejecutando metodo modificarPelicula() en la clase PeliculaDao");
 		try {
 			String sql = "UPDATE Peliculas SET Nombre= '" + p.getNombre() + "', Ano_estreno= '" + p.getAnho_estreno()
@@ -101,12 +101,14 @@ public class PeliculaDao implements IPeliculasDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
-
+			return true;
 
 
 		} catch (SQLException ex) {
 			logger.error("Error" +ex);
+			return false;
 		}
+		
 
 	}
 
@@ -159,7 +161,7 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	@Override
-	public List<Pelicula> obtenerPeliculas(String flitro) {
+	public List<Pelicula> obtenerPeliculas(String filtro) {
 		// TODO Auto-generated method stub
 		return null;
 	}

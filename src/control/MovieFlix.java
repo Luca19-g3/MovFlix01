@@ -66,6 +66,7 @@ public class MovieFlix {
 				break;
 			case 2:
 				logger.debug("Ha elegido la opcion 2");
+			
 				break;
 
 			case 3:
@@ -90,9 +91,11 @@ public class MovieFlix {
 
 			case 7:
 				logger.debug("Ha elegido la opcion 7");
+				servicio.bajaUsuario();
 				break;
 			case 8:
 				logger.debug("Ha elegido la opcion 8");
+				servicio.listarUsuarios();
 				break;
 
 			case 9:
@@ -112,6 +115,7 @@ public class MovieFlix {
 
 			case 12:
 				logger.debug("Ha elegido la opcion 12");
+				
 				break;
 
 			case 0:

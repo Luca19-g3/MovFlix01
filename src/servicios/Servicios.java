@@ -194,6 +194,36 @@ public class Servicios {
 
 	}
 	/**
+	 * Método para modificar la Pelicula solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void modificarPelicula() {
+		logger.debug("Ejecutando metodo modificarPelicula en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id de la Pelicula a modificar");
+			if (pd.obtenerPelicula(id) == null) {
+				logger.error("La Pelicula que intenta modificar no existe");
+			} else {
+				Pelicula pe =  new Pelicula();
+				pe.crearPelicula();
+				if (pd.modificarPelicula(pe, id))  {
+					logger.debug("La Pelicula ha sido modificada correctamente");
+				} else {
+					logger.error(
+							"Hubo un problema al intentar modificar la Pelicula. La categoria no ha sido modificada.");
+				}
+			}
+		} catch (Exception e) {
+			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
+		}
+		
+	}
+	
+	
+	/**
 	 * Metodo para dar de baja a una categoria solicitando un id por consola.
 	 * 
 	 * @param none
