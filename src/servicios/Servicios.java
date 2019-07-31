@@ -74,7 +74,7 @@ public class Servicios {
 		try {
 			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 			VistaPelicula
-					.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")));
+					.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")), ".");
 
 		} catch (Exception e) {
 

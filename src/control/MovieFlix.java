@@ -126,6 +126,10 @@ public class MovieFlix {
 				logger.debug("Ha elegido la opcion 16"); 
 				servicio.listarPeliculasNoVistas();
 				break;
+			case 17:
+				logger.debug("Ha elegido la opcion 17"); 
+				servicio.obtenerPeliculasFilPorCategoria();
+				break;
 			case 0:
 				logger.debug("Ha elegido la opcion: Terminar sesion");
 				continuar = salir();
