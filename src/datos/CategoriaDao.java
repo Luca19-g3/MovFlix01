@@ -50,7 +50,7 @@ public class CategoriaDao implements ICategoriaDao {
 
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
-			logger.info("Añadido correctamente");
+			logger.info("AÃ±adido correctamente");
 
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -147,24 +147,5 @@ public class CategoriaDao implements ICategoriaDao {
 			logger.error("Error " + ex.getMessage());
 			return null;
 		}
-
-	}
-
-	@Override
-	public List<Categoria> listarCategoria(String criterio) {
-
-		return null;
-	}
-
-	@Override
-	public List<Categoria> listarCategoria(String criterio, int nresultados) {
-
-		return null;
-	}
-
-	@Override
-	public void noVistas() {
-
-	}
 
 }

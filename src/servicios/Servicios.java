@@ -49,6 +49,7 @@ public class Servicios {
 
 	public void altaPelicula() {
 		logger.debug("Ejecutando metodo altaPelicula en la clase Servicios");
+		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
 		pd.altaPelicula(p);
@@ -68,6 +69,7 @@ public class Servicios {
 			if (pd.obtenerPelicula(id) == null) {
 				logger.error("La Pelicula que intenta modificar no existe");
 			} else {
+				VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 				Pelicula pe = new Pelicula();
 				pe.crearPelicula();
 				if (pd.modificarPelicula(pe, id)) {
@@ -396,7 +398,7 @@ public class Servicios {
 		try {
 			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")),
-					".");
+					"Peliculas filtradas por la categoria");
 
 		} catch (Exception e) {
 
