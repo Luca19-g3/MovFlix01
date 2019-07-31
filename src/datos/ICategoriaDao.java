@@ -1,3 +1,12 @@
+/**
+ * Clase ICategoriaDao
+ * Interfaz que contiene los metodos que contiene la Clase CategoriaDao
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
+
 package datos;
 
 import java.util.List;
