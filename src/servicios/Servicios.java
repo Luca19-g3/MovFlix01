@@ -69,6 +69,7 @@ public class Servicios {
 			if (pd.obtenerPelicula(id) == null) {
 				logger.error("La Pelicula que intenta modificar no existe");
 			} else {
+				VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 				Pelicula pe = new Pelicula();
 				pe.crearPelicula();
 				if (pd.modificarPelicula(pe, id)) {
