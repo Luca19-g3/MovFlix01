@@ -1,19 +1,15 @@
 package datos;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import control.MovieFlix;
 import modelo.Pelicula;
-import modelo.Usuario;
 import utilidades.Conexion;
 
 public class PeliculaDao implements IPeliculasDao {
@@ -23,7 +19,7 @@ public class PeliculaDao implements IPeliculasDao {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
@@ -31,12 +27,10 @@ public class PeliculaDao implements IPeliculasDao {
 	static ResultSet rs = null;
 	static PreparedStatement ps = null;
 
-	/*
-	 * Metodo para dar altas peliculas
-	 *
+	/**
+	 * Metodo para dar de alta a nuevas Peliculas
 	 * 
 	 * @param Pelicula
-	 * 
 	 * @return void
 	 */
 	public void altaPelicula(Pelicula p) {
@@ -49,8 +43,7 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
-			logger.info("Añadido correctamente");
-			// st.execute(sql);
+			logger.info("Anadido correctamente");
 			con.desconectar();
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -58,7 +51,7 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	/**
-	 * Metodo que obtiene todas las peliculas guardadas en la base de datos.
+	 * Metodo que obtiene todas las peliculas
 	 * 
 	 * @param none
 	 * @return List<Pelicula> | null
@@ -89,8 +82,8 @@ public class PeliculaDao implements IPeliculasDao {
 	/**
 	 * Metodo para modificar las peliculas
 	 * 
-	 * @param Pelicula , id
-	 * @return void
+	 * @param Pelicula , int id
+	 * @return boolean
 	 */
 	public boolean modificarPelicula(Pelicula p, int id) {
 		Conexion con = new Conexion();
@@ -115,9 +108,9 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	/**
-	 * baja a la pelicula con la id correspondiente
+	 * Metoda para dar de baja a la pelicula con el id correspondiente
 	 * 
-	 * @param id
+	 * @param int id
 	 * @return boolean
 	 */
 	public boolean bajaPelicula(int id) {
@@ -138,9 +131,9 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	/**
-	 * Obtiene una pelicula dado un determinado id
+	 * Metodo para obtener una pelicula dado un determinado id
 	 * 
-	 * @param int id de la pelicula
+	 * @param int id
 	 * @return Pelicula | null
 	 */
 	@Override
@@ -162,6 +155,14 @@ public class PeliculaDao implements IPeliculasDao {
 			return null;
 		}
 	}
+
+	/**
+	 * Metodo para obtener una pelicula filtradas por categoria dado un determinado
+	 * id
+	 * 
+	 * @param int id
+	 * @return List<Pelicula> | null
+	 */
 
 	@Override
 	public List<Pelicula> obtenerPeliculasPorCategoria(int id) {
@@ -189,10 +190,10 @@ public class PeliculaDao implements IPeliculasDao {
 	}
 
 	/**
-	 * Metodo que obtiene las peliculas mas valoradas.
+	 * Metodo que obtiene las peliculas mas vistas.
 	 * 
-	 * @param none
-	 * @return List<Pelicula> | null
+	 * @param int limite
+	 * @return List<String> | null
 	 */
 
 	public List<String> obtenerPeliculasMasVistas(int limite) {
@@ -223,6 +224,13 @@ public class PeliculaDao implements IPeliculasDao {
 
 	}
 
+	/**
+	 * Metodo que obtiene las peliculas mas valoradas.
+	 * 
+	 * @param int limite
+	 * @return List<String> | null
+	 */
+
 	public List<String> obtenerPeliculasMasValoradas(int limite) {
 		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasMasVistas() en la clase PeliculaDao");
@@ -232,7 +240,7 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 			rs = st.executeQuery("SELECT Nombre, TRUNCATE(AVG(Valoraciones),0) AS Valoracion\r\n"
 					+ "FROM Peliculas P , PeliculasVistas V\r\n" + "where P.idPeliculas=V.id_Peliculas\r\n"
-					+ "group by id_Peliculas\r\n" + "ORDER BY Valoracion DESC LIMIT "+limite+";");
+					+ "group by id_Peliculas\r\n" + "ORDER BY Valoracion DESC LIMIT " + limite + ";");
 
 			while (rs.next()) {
 
@@ -247,18 +255,6 @@ public class PeliculaDao implements IPeliculasDao {
 
 			return null;
 		}
-	}
-
-	@Override
-	public List<Pelicula> obtenerPeliculas(String filtro) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Pelicula> obtenerPeliculas(String filtro, int nresultados) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

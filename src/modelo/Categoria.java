@@ -10,8 +10,7 @@ public class Categoria {
 		super();
 	}
 
-
-	public Categoria (String nombre) {
+	public Categoria(String nombre) {
 		super();
 		this.nombre = nombre;
 	}
@@ -21,7 +20,6 @@ public class Categoria {
 		this.idcategoria = idcategoria;
 		this.nombre = nombre;
 	}
-
 
 	public int getIdcategoria() {
 		return idcategoria;
@@ -40,12 +38,10 @@ public class Categoria {
 	}
 
 	/**
-	 * este metodo pide id categoria y nombre para crear objetos de la clase
-	 * Categoria
-	 *
+	 * Metodo que pide los datos al usuario y se los pasa a la categoria
+	 * 
 	 * @param none
 	 * @return void
-	 *
 	 */
 	public void crearCategoria() {
 		try {

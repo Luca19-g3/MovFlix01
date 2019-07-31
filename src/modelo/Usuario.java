@@ -3,14 +3,11 @@ package modelo;
 import utilidades.Datos;
 
 public class Usuario {
-	
+
 	private int id_usuario;
 	private String nombre_completo;
 	private String fecha_nacimiento;
 	private String ciudad_residencia;
-	
-	
-	
 
 	public Usuario() {
 		super();
@@ -31,7 +28,6 @@ public class Usuario {
 		this.ciudad_residencia = ciudad_residencia;
 	}
 
-	
 	public int getId_usuario() {
 		return id_usuario;
 	}
@@ -39,7 +35,6 @@ public class Usuario {
 	public void setId_usuario(int id_usuario) {
 		this.id_usuario = id_usuario;
 	}
-
 
 	public String getNombre_completo() {
 		return nombre_completo;
@@ -64,16 +59,14 @@ public class Usuario {
 	public void setCiudad_residencia(String ciudad_residencia) {
 		this.ciudad_residencia = ciudad_residencia;
 	}
-	
+
 	/**
-	 * este metodo pide nombre, fecha de nacimiento y ciudad de residencia para crear objetos de la
-	 * clase usuario
+	 * Metodo que pide los datos al usuario y se los pasa al objeto usuario
 	 * 
-	 * @param none 
+	 * @param none
 	 * @return void
-	 * 
 	 */
-	
+
 	public void crearUsuario() {
 		try {
 
@@ -84,8 +77,7 @@ public class Usuario {
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
-			
-		
+
 	}
 
 	@Override
@@ -93,7 +85,5 @@ public class Usuario {
 		return "Usuario [id_usuario=" + id_usuario + ", nombre_completo=" + nombre_completo + ", fecha_nacimiento="
 				+ fecha_nacimiento + ", ciudad_residencia=" + ciudad_residencia + "]";
 	}
-	
-
 
 }

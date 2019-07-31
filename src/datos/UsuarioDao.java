@@ -19,21 +19,21 @@ public class UsuarioDao implements IUsuarioDao {
 	static Statement st = null;
 	static ResultSet rs = null;
 
-
 	// Logger
 	private static Logger logger;
 	static {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
 	/**
-	 * añade un usuario en la base de datos
+	 * Metodo que da de alta a un usuario
 	 * 
 	 * @param usuario
+	 * @return void
 	 */
 	public void altaUsuario(Usuario u) {
 		Conexion con = new Conexion();
@@ -47,7 +47,7 @@ public class UsuarioDao implements IUsuarioDao {
 
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
-			logger.info("Añadido correctamente");
+			logger.info("Anadido correctamente");
 			con.desconectar();
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -55,7 +55,7 @@ public class UsuarioDao implements IUsuarioDao {
 	}
 
 	/**
-	 * Metodo que obtiene todas laos usuarios cargados en la base de datos.
+	 * Metodo que obtiene todos los usuarios
 	 * 
 	 * @param none
 	 * @return List<Usuario> | null
@@ -85,7 +85,7 @@ public class UsuarioDao implements IUsuarioDao {
 	/**
 	 * Metodo que elimina usuarios en la base de datos dado su id.
 	 * 
-	 * @param int id del usuario
+	 * @param int id
 	 * @return boolean
 	 */
 
@@ -109,8 +109,8 @@ public class UsuarioDao implements IUsuarioDao {
 	/**
 	 * Metodo que modifica usuarios en la base de datos dado su id.
 	 * 
-	 * @param int id del usuario
-	 * @return void
+	 * @param int id
+	 * @return boolean
 	 */
 	public boolean modificarUsuario(Usuario us, int id) {
 		Conexion con = new Conexion();
@@ -134,10 +134,10 @@ public class UsuarioDao implements IUsuarioDao {
 	}
 
 	/**
-	 * Obtiene una pelicula dado un determinado id
+	 * Metodo que obtiene una pelicula dado un determinado id
 	 * 
-	 * @param int id del usuario
-	 * @return Pelicula | null
+	 * @param int id
+	 * @return Usuario | null
 	 */
 	@Override
 	public Usuario obtenerUsuario(int id) {
@@ -158,23 +158,25 @@ public class UsuarioDao implements IUsuarioDao {
 			return null;
 		}
 	}
+
 	/**
-	 * Obtiene una lista de las peliculas vistas por el usuarrio dado su id
+	 * Metodo que Obtiene una lista de las peliculas vistas por el usuarrio dado su
+	 * id
 	 * 
-	 * @param int id del usuario
-	 * @return List<Pelicula> | null 
+	 * @param int id
+	 * @return List<Pelicula> | null
 	 */
-	public List<Pelicula> obtenerPeliculasVistas(int id){
+	public List<Pelicula> obtenerPeliculasVistas(int id) {
 		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasVistas(id) en la clase UsuarioDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("Select * From Peliculas Where idPeliculas" + 
-					" IN(select id_Peliculas FROM PeliculasVistas Where id_usuarios = " + id + ")");
+			rs = st.executeQuery("Select * From Peliculas Where idPeliculas"
+					+ " IN(select id_Peliculas FROM PeliculasVistas Where id_usuarios = " + id + ")");
 
 			while (rs.next()) {
-				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
+				peliculas.add(new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 			}
 			con.desconectar();
 			return peliculas;
@@ -183,24 +185,25 @@ public class UsuarioDao implements IUsuarioDao {
 			return null;
 		}
 	}
-	
+
 	/**
-	 * Obtiene una una lista de peliculas vistas dado el id de un usuario
+	 * Metodo que Obtiene una lista de las peliculas no vistas por el usuarrio dado
+	 * su id
 	 * 
-	 * @param int id del usuario
-	 * @return List<Pelicula> | null 
+	 * @param int id
+	 * @return List<Pelicula> | null
 	 */
-	public List<Pelicula> obtenerPeliculasNoVistas(int id){
+	public List<Pelicula> obtenerPeliculasNoVistas(int id) {
 		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasNoVistas(id) en la clase UsuarioDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("Select * From Peliculas Where idPeliculas" + 
-					" NOT IN(select id_Peliculas FROM PeliculasVistas Where id_usuarios = " + id + ")");
+			rs = st.executeQuery("Select * From Peliculas Where idPeliculas"
+					+ " NOT IN(select id_Peliculas FROM PeliculasVistas Where id_usuarios = " + id + ")");
 
 			while (rs.next()) {
-				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
+				peliculas.add(new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 			}
 			con.desconectar();
 			return peliculas;

@@ -1,14 +1,10 @@
 
 package servicios;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import control.MovieFlix;
 import datos.CategoriaDao;
-import datos.IUsuarioDao;
 import datos.PeliculaDao;
 import datos.UsuarioDao;
 import modelo.Categoria;
@@ -19,8 +15,6 @@ import vistas.VistaCategoria;
 import vistas.VistaPelicula;
 import vistas.VistaUsuario;
 
-//1.17. Crear la clase Servicios en el paquete servicios con el método public boolean altaPelicula() [PDS]
-
 public class Servicios {
 	// Logger
 	private static Logger logger;
@@ -28,7 +22,7 @@ public class Servicios {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
@@ -41,7 +35,7 @@ public class Servicios {
 	}
 
 	/**
-	 * Da de alta una pelicula
+	 * Metodo que ejecuta al metodo altaPelicula(Pelicula p)
 	 * 
 	 * @param none
 	 * @return void
@@ -56,7 +50,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Metodo para modificar la Pelicula solicitando un id por consola.
+	 * Metodo que ejecuta al metodo modificarPelicula(Pelicula p, int id),
+	 * comprobando si existe la pelicula, pidiendo el id
 	 * 
 	 * @param none
 	 * @return void
@@ -87,7 +82,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Metodo para dar de baja una pelicula solicitando un id por consola.
+	 * Metodo que ejecuta al metodo bajaPelicula(int id) comprobando si existe la
+	 * pelicula, pidiendo el id
 	 * 
 	 * @param none
 	 * @return void
@@ -116,7 +112,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas
+	 * Metodo que ejecuta al metodo obtenerPeliculas() y lo imprime con el metodo
+	 * mostrarListaPeliculas de la clase VistaPelicula
 	 * 
 	 * @param none
 	 * @return void
@@ -127,19 +124,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Da de alta un usuario
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void altaUsuario() {
-		logger.debug("Ejecutando metodo altaUsuario en la clase Servicios");
-		Usuario usu = new Usuario();
-		usu.crearUsuario();
-	}
-
-	/**
-	 * Lista las categorias
+	 * Metodo que ejecuta al metodo listarCategorias() y lo imprime con el metodo
+	 * mostrarListaCategorias de la clase VistaCategoria
 	 * 
 	 * @param none
 	 * @return void
@@ -150,12 +136,12 @@ public class Servicios {
 	}
 
 	/**
-	 * Da de alta un usuario
+	 * Metodo que ejecuta al metodo altaUsuario(Usuario u)
 	 * 
 	 * @param none
 	 * @return void
 	 */
-	public void altaUsuarios() throws Exception {
+	public void altaUsuarios() {
 		logger.debug("Ejecutando metodo altaUsuarios() en la clase Servicios");
 		Usuario usu = new Usuario();
 		usu.crearUsuario();
@@ -163,7 +149,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Metodo para modificar el usuario solicitando un id por consola.
+	 * Metodo que ejecuta al metodo modificarUsuario(Usuario u, int id), comprobando
+	 * si existe el usuario, pidiendo el id
 	 * 
 	 * @param none
 	 * @return void
@@ -191,7 +178,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Metodo para dar de baja a un usuario solicitando un id por consola.
+	 * Metodo que ejecuta al metodo bajaUsuario(int id), comprobando si existe el
+	 * usuario, pidiendo el id
 	 * 
 	 * @param none
 	 * @return void
@@ -220,7 +208,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista los usuarios
+	 * Metodo que ejecuta al metodo listarUsuario() y lo imprime con el metodo
+	 * mostrarListaUsuarios de la clase VistaUsuario
 	 * 
 	 * @param none
 	 * @return void
@@ -231,7 +220,7 @@ public class Servicios {
 	}
 
 	/**
-	 * Da de alta una categoria
+	 * Metodo que ejecuta al metodo altaCategoria(Categoria c)
 	 * 
 	 * @param none
 	 * @return void
@@ -244,7 +233,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Método para modificar la categoria solicitando un id por consola.
+	 * Metodo que ejecuta al metodo modificarCategoria(Categoria c, int id),
+	 * comprobando si existe la categoria, pidiendo el id
 	 * 
 	 * @param none
 	 * @return void
@@ -274,7 +264,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Metodo para dar de baja a una categoria solicitando un id por consola.
+	 * Metodo que ejecuta al metodo bajaCategoria(Categoria c, int id), comprobando
+	 * si existe la categoria, pidiendo el id
 	 * 
 	 * @param none
 	 * @return void
@@ -304,7 +295,9 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas mas valoradas
+	 * Metodo que ejecuta obtenerPeliculasMasValoradas de la clase PeliculaDao
+	 * solicitando el numero de resultado e imprimiendolos con el metodo
+	 * mostrarPeliculasMasValoradas
 	 * 
 	 * @param none
 	 * @return void
@@ -321,6 +314,14 @@ public class Servicios {
 
 	}
 
+	/**
+	 * Metodo que ejecuta obtenerPeliculasMasVistas de la clase PeliculaDao
+	 * solicitando el numero de resultado e imprimiendolos con el metodo
+	 * mostrarPeliculasMasVistas
+	 * 
+	 * @param none
+	 * @return void
+	 */
 	public void listarPeliculasMasVistas() {
 		logger.debug("Ejecutando metodo listarPeliculasMasVistas en la clase Servicios");
 		int limite;
@@ -334,7 +335,8 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas vistas por un determinado usuario
+	 * Metodo que ejecuta obtenerPeliculasVistas de la clase PeliculaDao solicitando
+	 * el id del usuario e imprimiendolos con el metodo mostrarListaPeliculas
 	 * 
 	 * @param none
 	 * @return void
@@ -358,7 +360,9 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas no vistas por un determinado usuario
+	 * Metodo que ejecuta obtenerPeliculasNoVistas de la clase PeliculaDao
+	 * solicitando el id del usuario e imprimiendolos con el metodo
+	 * mostrarListaPeliculas
 	 * 
 	 * @param none
 	 * @return void
@@ -382,7 +386,9 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas filtradas por categoria
+	 * Metodo que ejecuta obtenerPeliculasFilPorCategoria de la clase PeliculaDao
+	 * solicitando el id de la categoria e imprimiendolos con el metodo
+	 * mostrarListaPeliculas
 	 * 
 	 * @param none
 	 * @return void

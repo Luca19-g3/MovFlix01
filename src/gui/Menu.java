@@ -12,12 +12,12 @@ public class Menu {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
 	/**
-	 * Imprime las diferentes opciones del menu
+	 * Metodo que imprime las diferentes opciones del menu
 	 * 
 	 * @param none
 	 * @return void
@@ -57,8 +57,5 @@ public class Menu {
 		System.out.println("0. -----Terminar sesion----");
 		System.out.println("Digite la opcion que desea emplear segun la numeracion:");
 	}
-	
 
-	
-		
 }

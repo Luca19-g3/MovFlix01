@@ -13,7 +13,6 @@ import org.apache.logging.log4j.Logger;
 import control.MovieFlix;
 import modelo.Categoria;
 import modelo.Pelicula;
-import modelo.Usuario;
 import utilidades.Conexion;
 
 public class CategoriaDao implements ICategoriaDao {
@@ -24,7 +23,7 @@ public class CategoriaDao implements ICategoriaDao {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
@@ -33,9 +32,10 @@ public class CategoriaDao implements ICategoriaDao {
 	static PreparedStatement ps = null;
 
 	/**
-	 * Da de alta a nuevas categorias
+	 * Metodo para dar de alta a nuevas categorias
 	 * 
 	 * @param Categoria
+	 * @return void
 	 */
 
 	@Override
@@ -49,7 +49,7 @@ public class CategoriaDao implements ICategoriaDao {
 
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
-			logger.info("Añadido correctamente");
+			logger.info("Anadido correctamente");
 			con.desconectar();
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -60,8 +60,8 @@ public class CategoriaDao implements ICategoriaDao {
 	/**
 	 * Metodo para modificar las categorias
 	 * 
-	 * @param Pelicula , id
-	 * @return void
+	 * @param Categoria , id
+	 * @return boolean
 	 */
 	@Override
 	public boolean modificarCategoria(Categoria c, int id) {
@@ -84,7 +84,7 @@ public class CategoriaDao implements ICategoriaDao {
 	}
 
 	/**
-	 * baja la categoria con la id correspondiente
+	 * Metodo para dar de baja a la categoria con la id correspondiente
 	 * 
 	 * @param id
 	 * @return boolean
@@ -100,7 +100,7 @@ public class CategoriaDao implements ICategoriaDao {
 			con.desconectar();
 			return true;
 		} catch (SQLException e) {
-			logger.error("No Permit");
+			logger.error("Error al intentar dar de baja a la categoria. " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -108,10 +108,10 @@ public class CategoriaDao implements ICategoriaDao {
 	}
 
 	/**
-	 * obtiene la categoria con la id correspondiente
+	 * Metodo para obtener la categoria con el id correspondiente
 	 * 
-	 * @param id
-	 * @return boolean
+	 * @param int id
+	 * @return Categoria | null
 	 */
 
 	public Categoria obtenerCategoria(int id) {
@@ -133,6 +133,12 @@ public class CategoriaDao implements ICategoriaDao {
 		}
 	}
 
+	/**
+	 * Metodo para obtener un listado de las categorias con el id correspondiente
+	 * 
+	 * @param none
+	 * @return List<Categoria> | null
+	 */
 	@Override
 	public List<Categoria> listarCategoria() {
 		Conexion con = new Conexion();

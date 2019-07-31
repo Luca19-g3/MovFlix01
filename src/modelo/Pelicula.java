@@ -20,14 +20,13 @@ public class Pelicula {
 		this.anho_estreno = anho_estreno;
 		this.categoria = categoria;
 	}
-	
+
 	public Pelicula(String nombre, int anho_estreno, String categoria) {
 		super();
 		this.nombre = nombre;
 		this.anho_estreno = anho_estreno;
 		this.categoria = categoria;
 	}
-
 
 	public int getId_pelicula() {
 		return id_pelicula;
@@ -62,12 +61,10 @@ public class Pelicula {
 	}
 
 	/**
-	 * este metodo pide nombre, categoria y año de estreno para crear objetos de la
-	 * clase pelicula
+	 * Metodo que pide los datos al usuario y se los pasa a la Pelicula
 	 * 
-	 * @param none 
+	 * @param none
 	 * @return void
-	 * 
 	 */
 
 	public void crearPelicula() {

@@ -15,12 +15,12 @@ public class MovieFlix {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
 
 	/**
-	 * Metodo para iniciar la aplicaci√≥n
+	 * Metodo para iniciar la aplicacion
 	 * 
 	 * @param: none
 	 * @return: void
@@ -42,7 +42,7 @@ public class MovieFlix {
 	Servicios servicio = new Servicios();
 
 	/**
-	 * Metodo que gestiona la elecci√≥n de opciones del men√∫ del usuario
+	 * Metodo que gestiona la eleccion de opciones del menu del usuario
 	 * 
 	 * @param: none
 	 * @return: boolean
@@ -111,23 +111,23 @@ public class MovieFlix {
 				servicio.listarCategorias();
 				break;
 			case 13:
-				logger.debug("Ha elegido la opcion 13"); 
+				logger.debug("Ha elegido la opcion 13");
 				servicio.listarPeliculasMasValoradas();
 				break;
 			case 14:
-				logger.debug("Ha elegido la opcion 14"); 
+				logger.debug("Ha elegido la opcion 14");
 				servicio.listarPeliculasMasVistas();
 				break;
 			case 15:
-				logger.debug("Ha elegido la opcion 15"); 
+				logger.debug("Ha elegido la opcion 15");
 				servicio.listarPeliculasVistas();
 				break;
 			case 16:
-				logger.debug("Ha elegido la opcion 16"); 
+				logger.debug("Ha elegido la opcion 16");
 				servicio.listarPeliculasNoVistas();
 				break;
 			case 17:
-				logger.debug("Ha elegido la opcion 17"); 
+				logger.debug("Ha elegido la opcion 17");
 				servicio.obtenerPeliculasFilPorCategoria();
 				break;
 			case 0:
@@ -141,9 +141,15 @@ public class MovieFlix {
 		return continuar;
 	}
 
-	
-	  private boolean salir() throws Exception { 
-		  String sino =Datos.recogeString("   øEst· seguro?(S/N)"); 
-		  return (sino.toUpperCase().charAt(0) != 'S');
-	  }
+	/**
+	 * Metodo para salir de la aplicacion
+	 * 
+	 * @param: none
+	 * @return: boolean
+	 */
+
+	private boolean salir() throws Exception {
+		String sino = Datos.recogeString("   øEst· seguro?(S/N)");
+		return (sino.toUpperCase().charAt(0) != 'S');
+	}
 }
