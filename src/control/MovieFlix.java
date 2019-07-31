@@ -1,3 +1,12 @@
+/**
+ * Clase MovieFlix
+ * Clase que inicia la aplicacion y llama al servicio en funcion de la opcion elegida del menu por el usuario
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
+
 package control;
 
 import org.apache.logging.log4j.LogManager;
@@ -149,7 +158,7 @@ public class MovieFlix {
 	 */
 
 	private boolean salir() throws Exception {
-		String sino = Datos.recogeString("   ¿Está seguro?(S/N)");
+		String sino = Datos.recogeString("   Â¿EstÃ¡ seguro?(S/N)");
 		return (sino.toUpperCase().charAt(0) != 'S');
 	}
 }
