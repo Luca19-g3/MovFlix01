@@ -41,63 +41,6 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void listarPeliculas() {
-		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
-		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas(), "Listado de las peliculas");
-	}
-
-	/**
-	 * Lista las categorias
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void listarCategorias() {
-		logger.debug("Ejecutando metodo listarCategorias en la clase Servicios");
-		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
-	}
-
-	/**
-	 * Lista las peliculas filtradas por categoria
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void obtenerPeliculasFilPorCategoria() {
-		logger.debug("Ejecutando metodo listar peliculas filtradas por categoria");
-
-		try {
-			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
-
-			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")),
-					"Categoria.");
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-			logger.error("Excepcion servicios.obtenerPeliculasPorCategoria. " + e.getMessage());
-		}
-
-	}
-
-	/**
-	 * Da de alta un usuario
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void altaUsuario() {
-		logger.debug("Ejecutando metodo altaUsuario en la clase Servicios");
-		Usuario usu = new Usuario();
-		usu.crearUsuario();
-	}
-
-	/**
 	 * Da de alta una pelicula
 	 * 
 	 * @param none
@@ -109,6 +52,43 @@ public class Servicios {
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
 		pd.altaPelicula(p);
+	}
+
+	/**
+	 * Metodo para modificar la Pelicula solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void modificarPelicula() {
+		logger.debug("Ejecutando metodo modificarPelicula en la clase Servicios");
+		int id;
+		try {
+<<<<<<< HEAD
+			id = Datos.recogeInt("Introduzca el id de la Pelicula a modificar");
+			if (pd.obtenerPelicula(id) == null) {
+				logger.error("La Pelicula que intenta modificar no existe");
+			} else {
+				Pelicula pe = new Pelicula();
+				pe.crearPelicula();
+				if (pd.modificarPelicula(pe, id)) {
+					logger.debug("La Pelicula ha sido modificada correctamente");
+				} else {
+					logger.error(
+							"Hubo un problema al intentar modificar la Pelicula. La categoria no ha sido modificada.");
+				}
+			}
+=======
+			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
+
+			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")),
+					"Categoria.");
+
+>>>>>>> f1e473acaa08970783ef98446d37981c041a4168
+		} catch (Exception e) {
+			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
+		}
+
 	}
 
 	/**
@@ -141,15 +121,40 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista los usuarios
+	 * Lista las peliculas
 	 * 
 	 * @param none
 	 * @return void
 	 */
-	public void listarUsuarios() {
-		logger.debug("Ejecutando metodo listarUsuarios en la clase Servicios");
-		VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
+	public void listarPeliculas() {
+		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
+		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas(), "Listado de las peliculas");
 	}
+
+	/**
+	 * Da de alta un usuario
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void altaUsuario() {
+		logger.debug("Ejecutando metodo altaUsuario en la clase Servicios");
+		Usuario usu = new Usuario();
+		usu.crearUsuario();
+	}
+
+	/**
+	 * Lista las categorias
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void listarCategorias() {
+		logger.debug("Ejecutando metodo listarCategorias en la clase Servicios");
+		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
+	}
+
+	
 
 	/**
 	 * Da de alta un usuario
@@ -165,20 +170,7 @@ public class Servicios {
 	}
 
 	/**
-	 * Da de alta una categoria
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void altaCategoria() {
-		logger.debug("Ejecutando metodo altaCategoria() en la clase Servicios");
-		Categoria c = new Categoria();
-		c.crearCategoria();
-		cd.altaCategoria(c);
-	}
-
-	/**
-	 * Método para modificar el usuario solicitando un id por consola.
+	 * Metodo para modificar el usuario solicitando un id por consola.
 	 * 
 	 * @param none
 	 * @return void
@@ -206,6 +198,59 @@ public class Servicios {
 	}
 
 	/**
+	 * Metodo para dar de baja a un usuario solicitando un id por consola.
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void bajaUsuario() {
+		logger.debug("Ejecutando metodo bajaUsuario() en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id del Usuario a eliminar");
+			if (ud.obtenerUsuario(id) == null) {
+				logger.error("El usuario que intenta eliminar no existe");
+			} else {
+				if (ud.bajaUsuario(id)) {
+					logger.debug("Usuario eliminado correctamente");
+
+				} else {
+					logger.error("Hubo un problema al intentar eliminar el usuario. El usuario no fue eliminado");
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("Excepcion servicios.bajaCategoria. " + e.getMessage());
+		}
+
+	}
+
+	/**
+	 * Lista los usuarios
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void listarUsuarios() {
+		logger.debug("Ejecutando metodo listarUsuarios en la clase Servicios");
+		VistaUsuario.mostrarListaUsuarios(ud.listarUsuario());
+	}
+
+	/**
+	 * Da de alta una categoria
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void altaCategoria() {
+		logger.debug("Ejecutando metodo altaCategoria() en la clase Servicios");
+		Categoria c = new Categoria();
+		c.crearCategoria();
+		cd.altaCategoria(c);
+	}
+
+	/**
 	 * Método para modificar la categoria solicitando un id por consola.
 	 * 
 	 * @param none
@@ -226,35 +271,6 @@ public class Servicios {
 				} else {
 					logger.error(
 							"Hubo un problema al intentar modificar la categoria. La categoria no ha sido modificada.");
-				}
-			}
-		} catch (Exception e) {
-			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
-		}
-
-	}
-
-	/**
-	 * Método para modificar la Pelicula solicitando un id por consola.
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void modificarPelicula() {
-		logger.debug("Ejecutando metodo modificarPelicula en la clase Servicios");
-		int id;
-		try {
-			id = Datos.recogeInt("Introduzca el id de la Pelicula a modificar");
-			if (pd.obtenerPelicula(id) == null) {
-				logger.error("La Pelicula que intenta modificar no existe");
-			} else {
-				Pelicula pe = new Pelicula();
-				pe.crearPelicula();
-				if (pd.modificarPelicula(pe, id)) {
-					logger.debug("La Pelicula ha sido modificada correctamente");
-				} else {
-					logger.error(
-							"Hubo un problema al intentar modificar la Pelicula. La categoria no ha sido modificada.");
 				}
 			}
 		} catch (Exception e) {
@@ -294,35 +310,6 @@ public class Servicios {
 	}
 
 	/**
-	 * Metodo para dar de baja a un usuario solicitando un id por consola.
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void bajaUsuario() {
-		logger.debug("Ejecutando metodo bajaUsuario() en la clase Servicios");
-		int id;
-		try {
-			id = Datos.recogeInt("Introduzca el id del Usuario a eliminar");
-			if (ud.obtenerUsuario(id) == null) {
-				logger.error("El usuario que intenta eliminar no existe");
-			} else {
-				if (ud.bajaUsuario(id)) {
-					logger.debug("Usuario eliminado correctamente");
-
-				} else {
-					logger.error("Hubo un problema al intentar eliminar el usuario. El usuario no fue eliminado");
-				}
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			logger.error("Excepcion servicios.bajaCategoria. " + e.getMessage());
-		}
-
-	}
-
-	/**
 	 * Lista las peliculas mas valoradas
 	 * 
 	 * @param none
@@ -353,30 +340,6 @@ public class Servicios {
 	}
 
 	/**
-	 * Lista las peliculas no vistas por un determinado usuario
-	 * 
-	 * @param none
-	 * @return void
-	 */
-	public void listarPeliculasNoVistas() {
-		logger.debug("Ejecutando metodo listarPeliculasNoVistas en la clase Servicios");
-		int id;
-		try {
-			id = Datos.recogeInt("Introduzca el id del Usuario a consultar");
-			if (ud.obtenerUsuario(id) == null) {
-				logger.error("El usuario introducido no existe");
-			} else {
-				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasNoVistas(id),
-						"Listado de peliculas no vistas por un cliente");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			logger.error("Excepcion servicios.listarPeliculasNoVistas. " + e.getMessage());
-		}
-	}
-
-	/**
 	 * Lista las peliculas vistas por un determinado usuario
 	 * 
 	 * @param none
@@ -399,4 +362,51 @@ public class Servicios {
 			logger.error("Excepcion servicios.listarPeliculasVistas. " + e.getMessage());
 		}
 	}
+
+	/**
+	 * Lista las peliculas no vistas por un determinado usuario
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void listarPeliculasNoVistas() {
+		logger.debug("Ejecutando metodo listarPeliculasNoVistas en la clase Servicios");
+		int id;
+		try {
+			id = Datos.recogeInt("Introduzca el id del Usuario a consultar");
+			if (ud.obtenerUsuario(id) == null) {
+				logger.error("El usuario introducido no existe");
+			} else {
+				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasNoVistas(id),
+						"Listado de peliculas no vistas por un cliente");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error("Excepcion servicios.listarPeliculasNoVistas. " + e.getMessage());
+		}
+	}
+	
+	/**
+	 * Lista las peliculas filtradas por categoria
+	 * 
+	 * @param none
+	 * @return void
+	 */
+	public void obtenerPeliculasFilPorCategoria() {
+		logger.debug("Ejecutando metodo listar peliculas filtradas por categoria");
+
+		try {
+			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
+			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")),
+					".");
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			logger.error("Excepcion servicios.obtenerPeliculasPorCategoria. " + e.getMessage());
+		}
+
+	}
+
 }
