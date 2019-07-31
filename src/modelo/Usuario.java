@@ -1,3 +1,11 @@
+/**
+ * Clase Usuario
+ * Clase modelo para gestionar los Usuarios
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package modelo;
 
 import utilidades.Datos;
