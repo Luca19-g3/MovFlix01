@@ -196,11 +196,11 @@ public class PeliculaDao implements IPeliculasDao {
 
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("	SELECT Nombre, COUNT(*) AS Veces\r\n" + 
-					"	FROM Peliculas P , PeliculasVistas V\r\n" + 
-					"	where P.idPeliculas=V.id_Peliculas\r\n" + 
-					"	group by id_Peliculas\r\n" + 
-					"	ORDER BY Veces DESC"
+			rs = st.executeQuery("	SELECT Nombre, COUNT(*) AS Veces" + 
+					" FROM Peliculas P , PeliculasVistas V" + 
+					" where P.idPeliculas=V.id_Peliculas" + 
+					" group by id_Peliculas" + 
+					" ORDER BY Veces DESC"
 					+ " LIMIT " + limite);
 
 			while (rs.next()) {
