@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import control.MovieFlix;
-import modelo.Pelicula;
 import modelo.Usuario;
 
 public class VistaUsuario {
