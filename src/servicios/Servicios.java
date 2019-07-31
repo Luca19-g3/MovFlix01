@@ -1,4 +1,11 @@
-
+/**
+ * Clase Servicios
+ * Clase que gestiona las relaciones entre las peticiones del usuario y los resultados
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package servicios;
 
 import org.apache.logging.log4j.LogManager;
