@@ -22,7 +22,7 @@ public class VistaUsuario {
 
 	/**
 	 * 
-	 *Metodo para controlar la forma de mostrar el listado de Usuarios
+	 * Metodo para controlar la forma de mostrar el listado de Usuarios
 	 * 
 	 * @param List<Usuario> listado de todas las usuarios
 	 * @return void
