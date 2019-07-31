@@ -1,5 +1,4 @@
 
-
 package servicios;
 
 import java.util.List;
@@ -49,8 +48,9 @@ public class Servicios {
 	 */
 	public void listarPeliculas() {
 		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
-		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas());
+		VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculas(), "Listado de las peliculas");
 	}
+
 	/**
 	 * Lista las categorias
 	 * 
@@ -58,7 +58,7 @@ public class Servicios {
 	 * @return void
 	 */
 	public void listarCategorias() {
-		logger.debug("Ejecutando metodo listarPeliculas en la clase Servicios");
+		logger.debug("Ejecutando metodo listarCategorias en la clase Servicios");
 		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 	}
 
@@ -338,6 +338,7 @@ public class Servicios {
 		}
 
 	}
+
 	public void listarPeliculasPeliculasMasVistas() {
 		logger.debug("Ejecutando metodo listarPeliculasMasVistas en la clase Servicios");
 		int limite;
@@ -349,9 +350,10 @@ public class Servicios {
 		}
 
 	}
-	
-		/**
+
+	/**
 	 * Lista las peliculas no vistas por un determinado usuario
+	 * 
 	 * @param none
 	 * @return void
 	 */
@@ -363,7 +365,8 @@ public class Servicios {
 			if (ud.obtenerUsuario(id) == null) {
 				logger.error("El usuario introducido no existe");
 			} else {
-				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasNoVistas(id)); 
+				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasNoVistas(id),
+						"Listado de peliculas no vistas por un cliente");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -371,9 +374,10 @@ public class Servicios {
 			logger.error("Excepcion servicios.listarPeliculasNoVistas. " + e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Lista las peliculas vistas por un determinado usuario
+	 * 
 	 * @param none
 	 * @return void
 	 */
@@ -385,7 +389,8 @@ public class Servicios {
 			if (ud.obtenerUsuario(id) == null) {
 				logger.error("El usuario introducido no existe");
 			} else {
-				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasVistas(id)); 
+				VistaPelicula.mostrarListaPeliculas(ud.obtenerPeliculasVistas(id),
+						"Listado de peliculas vistas por un cliente");
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -394,13 +399,3 @@ public class Servicios {
 		}
 	}
 }
-
-
-
-
-
-
-
-
-		
-		

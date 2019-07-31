@@ -108,7 +108,7 @@ public class MovieFlix {
 
 			case 12:
 				logger.debug("Ha elegido la opcion 12");
-				servicio.listarPeliculas();
+				servicio.listarCategorias();
 				break;
 			case 13:
 				logger.debug("Ha elegido la opcion 13"); 

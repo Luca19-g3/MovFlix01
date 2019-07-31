@@ -26,11 +26,11 @@ public class VistaPelicula {
 	 * @return void
 	 */
 	
-	public static void mostrarListaPeliculas(List<Pelicula> peliculas) {
+	public static void mostrarListaPeliculas(List<Pelicula> peliculas, String mensaje) {
 		logger.debug("Ejecutando metodo mostrarListaPeliculas() en la clase VistaPelicula");
 		StringBuilder listado = new StringBuilder();
 		
-		listado.append("**********************\nListado de todas las peliculas:\n");
+		listado.append("**********************\n"+mensaje+":\n");
 		for(Pelicula p:peliculas) {
 			listado.append("Id: " + p.getId_pelicula() + " | Nombre: " + p.getNombre() + " | Anho de estreno: " + p.getAnho_estreno() + " | Categoria: " + p.getCategoria() + "\n");
 			
