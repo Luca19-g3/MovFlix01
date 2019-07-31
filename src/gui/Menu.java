@@ -1,3 +1,11 @@
+/**
+ * Clase Menu
+ * Clase que contiene el menu de la aplicacion
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package gui;
 
 import org.apache.logging.log4j.LogManager;
