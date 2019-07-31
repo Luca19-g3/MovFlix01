@@ -147,5 +147,5 @@ public class CategoriaDao implements ICategoriaDao {
 			logger.error("Error " + ex.getMessage());
 			return null;
 		}
-
+	}
 }
