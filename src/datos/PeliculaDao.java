@@ -236,7 +236,7 @@ public class PeliculaDao implements IPeliculasDao {
 
 			while (rs.next()) {
 
-				peliculas.add(rs.getString(1) + " | Valoracion: " + String.valueOf(rs.getString(2)));
+				peliculas.add(rs.getString(1) + " | Valoracion: " + String.valueOf((rs.getString(2))));
 			}
 			con.desconectar();
 			return peliculas;
