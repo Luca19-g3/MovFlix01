@@ -30,7 +30,6 @@ public class PeliculaDao implements IPeliculasDao {
 	static Statement st = null;
 	static ResultSet rs = null;
 	static PreparedStatement ps = null;
-	static Conexion con = new Conexion();
 
 	/*
 	 * Metodo para dar altas peliculas
@@ -41,6 +40,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return void
 	 */
 	public void altaPelicula(Pelicula p) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo altaPelicula() en la clase PeliculaDao");
 		String sql = "INSERT INTO Peliculas (Nombre,Ano_estreno,id_Categorias) values('" + p.getNombre() + "','"
 				+ p.getAnho_estreno() + "','" + p.getCategoria() + "')";
@@ -51,6 +51,7 @@ public class PeliculaDao implements IPeliculasDao {
 			logger.info(sql);
 			logger.info("Añadido correctamente");
 			// st.execute(sql);
+			con.desconectar();
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
 		}
@@ -64,6 +65,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 */
 
 	public List<Pelicula> obtenerPeliculas() {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculas() en la clase PeliculaDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
@@ -74,7 +76,7 @@ public class PeliculaDao implements IPeliculasDao {
 			while (rs.next()) {
 				peliculas.add(new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 			}
-
+			con.desconectar();
 			return peliculas;
 
 		} catch (SQLException ex) {
@@ -91,6 +93,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return void
 	 */
 	public boolean modificarPelicula(Pelicula p, int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo modificarPelicula() en la clase PeliculaDao");
 		try {
 			String sql = "UPDATE Peliculas SET Nombre= '" + p.getNombre() + "', Ano_estreno= '" + p.getAnho_estreno()
@@ -101,6 +104,7 @@ public class PeliculaDao implements IPeliculasDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
+			con.desconectar();
 			return true;
 
 		} catch (SQLException ex) {
@@ -117,12 +121,13 @@ public class PeliculaDao implements IPeliculasDao {
 	 * @return boolean
 	 */
 	public boolean bajaPelicula(int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo bajaPelicula() en la clase PeliculaDao");
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate("DELETE FROM Peliculas WHERE idPeliculas =" + id);
 			System.out.println(i);
-
+			con.desconectar();
 			return true;
 		} catch (SQLException e) {
 			logger.error("Error");
@@ -140,6 +145,7 @@ public class PeliculaDao implements IPeliculasDao {
 	 */
 	@Override
 	public Pelicula obtenerPelicula(int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPelicula(id) en la clase PeliculaDao");
 		Pelicula p = new Pelicula();
 		try {
@@ -149,7 +155,7 @@ public class PeliculaDao implements IPeliculasDao {
 			while (rs.next()) {
 				return new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4));
 			}
-
+			con.desconectar();
 			return null;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
@@ -159,6 +165,7 @@ public class PeliculaDao implements IPeliculasDao {
 
 	@Override
 	public List<Pelicula> obtenerPeliculasPorCategoria(int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasPorCategoria() en la clase PeliculaDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 
@@ -170,7 +177,7 @@ public class PeliculaDao implements IPeliculasDao {
 
 				peliculas.add(new Pelicula(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 			}
-
+			con.desconectar();
 			return peliculas;
 
 		} catch (SQLException ex) {
@@ -181,7 +188,6 @@ public class PeliculaDao implements IPeliculasDao {
 
 	}
 
-
 	/**
 	 * Metodo que obtiene las peliculas mas valoradas.
 	 * 
@@ -190,55 +196,54 @@ public class PeliculaDao implements IPeliculasDao {
 	 */
 
 	public List<String> obtenerPeliculasMasVistas(int limite) {
+		Conexion con = new Conexion();
+
 		logger.debug("Ejecutando metodo obtenerPeliculasMasVistas() en la clase PeliculaDao");
 		List<String> peliculas = new ArrayList<String>();
 
-
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("	SELECT Nombre, COUNT(*) AS Veces" + 
-					" FROM Peliculas P , PeliculasVistas V" + 
-					" where P.idPeliculas=V.id_Peliculas" + 
-					" group by id_Peliculas" + 
-					" ORDER BY Veces DESC"
+			rs = st.executeQuery("	SELECT Nombre, COUNT(*) AS Veces" + " FROM Peliculas P , PeliculasVistas V"
+					+ " where P.idPeliculas=V.id_Peliculas" + " group by id_Peliculas" + " ORDER BY Veces DESC"
 					+ " LIMIT " + limite);
 
 			while (rs.next()) {
 
-				peliculas.add(rs.getString(1)+ " | Visualizaciones: "+String.valueOf(rs.getString(2)));
-			}
+				peliculas.add(rs.getString(1) + " | Visualizaciones: " + String.valueOf(rs.getString(2)));
 
+			}
+			con.desconectar();
 			return peliculas;
 
 		} catch (SQLException ex) {
-			logger.error("Error "+ ex.getMessage());
+			logger.error("Error " + ex.getMessage());
 
 			return null;
 		}
+
 	}
 
 	public List<String> obtenerPeliculasMasValoradas(int limite) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasMasVistas() en la clase PeliculaDao");
 		List<String> peliculas = new ArrayList<String>();
 
-
 		try {
 			st = con.getConnection().createStatement();
-			rs = st.executeQuery("SELECT Nombre, AVG(Valoraciones) AS Valoracion\r\n" + 
-					"FROM Peliculas P , PeliculasVistas V\r\n" + 
-					"where P.idPeliculas=V.id_Peliculas\r\n" + 
-					"group by id_Peliculas\r\n" + 
-					"ORDER BY Valoracion DESC;");
+			rs = st.executeQuery("SELECT Nombre, AVG(Valoraciones) AS Valoracion\r\n"
+					+ "FROM Peliculas P , PeliculasVistas V\r\n" + "where P.idPeliculas=V.id_Peliculas\r\n"
+					+ "group by id_Peliculas\r\n" + "ORDER BY Valoracion DESC;");
 
 			while (rs.next()) {
 
-				peliculas.add(rs.getString(1)+ " | Valoracion: "+String.valueOf(rs.getString(2)));
+				peliculas.add(rs.getString(1) + " | Valoracion: " + String.valueOf(rs.getString(2)));
 			}
-
+			con.desconectar();
 			return peliculas;
 
 		} catch (SQLException ex) {
-			logger.error("Error "+ ex.getMessage());
+
+			logger.error("Error " + ex.getMessage());
 
 			return null;
 		}
@@ -255,10 +260,5 @@ public class PeliculaDao implements IPeliculasDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-
-
-
 
 }
