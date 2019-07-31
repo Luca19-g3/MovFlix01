@@ -31,8 +31,7 @@ public class CategoriaDao implements ICategoriaDao {
 	static Statement st = null;
 	static ResultSet rs = null;
 	static PreparedStatement ps = null;
-	static Conexion con = new Conexion();
-	
+
 	/**
 	 * Da de alta a nuevas categorias
 	 * 
@@ -43,7 +42,7 @@ public class CategoriaDao implements ICategoriaDao {
 	public void altaCategoria(Categoria c) {
 		logger.debug("Ejecutando metodo altaCategoria() en la clase CategoriaDao");
 		String sql = "INSERT INTO Categorias (Nombre) values('" + c.getNombre() + "')";
-
+		Conexion con = new Conexion();
 		try {
 
 			st = con.getConnection().createStatement();
@@ -51,7 +50,7 @@ public class CategoriaDao implements ICategoriaDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Añadido correctamente");
-
+			con.desconectar();
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
 		}
@@ -66,7 +65,7 @@ public class CategoriaDao implements ICategoriaDao {
 	 */
 	@Override
 	public boolean modificarCategoria(Categoria c, int id) {
-
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo modificarCategoria() en la clase CategoriaDao");
 		try {
 			String sql = "UPDATE Categorias SET Nombre= '" + c.getNombre() + "' WHERE idCategorias=" + id;
@@ -76,6 +75,7 @@ public class CategoriaDao implements ICategoriaDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
+			con.desconectar();
 			return true;
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -91,12 +91,13 @@ public class CategoriaDao implements ICategoriaDao {
 	 */
 	@Override
 	public boolean bajaCategoria(int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo bajaCategoria() en la clase CategoriaDao");
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate("DELETE FROM Categorias WHERE idCategorias =" + id);
 			System.out.println(i);
-
+			con.desconectar();
 			return true;
 		} catch (SQLException e) {
 			logger.error("No Permit");
@@ -104,25 +105,27 @@ public class CategoriaDao implements ICategoriaDao {
 			return false;
 		}
 
-	}	
+	}
+
 	/**
 	 * obtiene la categoria con la id correspondiente
 	 * 
 	 * @param id
 	 * @return boolean
 	 */
-	
+
 	public Categoria obtenerCategoria(int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerCategoria(id) en la clase CategoriaDao");
 		Pelicula p = new Pelicula();
 		try {
 			st = con.getConnection().createStatement();
 			rs = st.executeQuery("SELECT * FROM Categorias WHERE idCategorias = " + id);
-						
+
 			while (rs.next()) {
-				return new Categoria(rs.getInt(1),rs.getString(2));
+				return new Categoria(rs.getInt(1), rs.getString(2));
 			}
-			
+			con.desconectar();
 			return null;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
@@ -132,16 +135,17 @@ public class CategoriaDao implements ICategoriaDao {
 
 	@Override
 	public List<Categoria> listarCategoria() {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo listar categorias en la clase CategoriaDao");
-		 List<Categoria> c = new  ArrayList<Categoria>();
+		List<Categoria> c = new ArrayList<Categoria>();
 		try {
 			st = con.getConnection().createStatement();
 			rs = st.executeQuery("SELECT * FROM Categorias");
-						
+
 			while (rs.next()) {
-				c.add(new Categoria(rs.getInt(1),rs.getString(2)));
+				c.add(new Categoria(rs.getInt(1), rs.getString(2)));
 			}
-			
+			con.desconectar();
 			return c;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
