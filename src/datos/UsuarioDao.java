@@ -1,3 +1,11 @@
+/**
+ * Clase UsarioDao
+ * Clase que contiene los metodos para los usuarios, que interaccionan con la base de datos
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package datos;
 
 import java.sql.ResultSet;
