@@ -64,6 +64,7 @@ public class Servicios {
 		logger.debug("Ejecutando metodo modificarPelicula en la clase Servicios");
 		int id;
 		try {
+<<<<<<< HEAD
 			id = Datos.recogeInt("Introduzca el id de la Pelicula a modificar");
 			if (pd.obtenerPelicula(id) == null) {
 				logger.error("La Pelicula que intenta modificar no existe");
@@ -77,6 +78,16 @@ public class Servicios {
 							"Hubo un problema al intentar modificar la Pelicula. La categoria no ha sido modificada.");
 				}
 			}
+=======
+			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
+<<<<<<< HEAD
+			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")), "Categoria.");
+=======
+			VistaPelicula
+					.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")), ".");
+>>>>>>> 885e96ee4717841dd70c127a9810e7a052173a1e
+
+>>>>>>> f1e473acaa08970783ef98446d37981c041a4168
 		} catch (Exception e) {
 			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
 		}
