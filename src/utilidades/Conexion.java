@@ -1,3 +1,11 @@
+/**
+ * Clase Conexion
+ * Clase para gestionar la conexion con la base de datos
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package utilidades;
 
 import java.sql.*;
