@@ -49,6 +49,7 @@ public class Servicios {
 
 	public void altaPelicula() {
 		logger.debug("Ejecutando metodo altaPelicula en la clase Servicios");
+		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 		Pelicula p = new Pelicula();
 		p.crearPelicula();
 		pd.altaPelicula(p);
