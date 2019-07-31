@@ -1,3 +1,11 @@
+/**
+ * Clase Pelicula
+ * Clase modelo para gestionar las Peliculas
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package modelo;
 
 import utilidades.Datos;
@@ -48,8 +56,8 @@ public class Pelicula {
 		return anho_estreno;
 	}
 
-	public void setAnho_estreno(int año_estreno) {
-		this.anho_estreno = año_estreno;
+	public void setAnho_estreno(int aÃ±o_estreno) {
+		this.anho_estreno = aÃ±o_estreno;
 	}
 
 	public String getCategoria() {
@@ -71,7 +79,7 @@ public class Pelicula {
 		try {
 
 			this.nombre = Datos.recogeString("Introduce el nombre de la pelicula: ");
-			this.anho_estreno = Datos.recogeInt("Introduce el año de estreno: ");
+			this.anho_estreno = Datos.recogeInt("Introduce el aÃ±o de estreno: ");
 			this.categoria = Datos.recogeString("Introduzca la categoria de la pelicula: ");
 
 		} catch (Exception e) {
@@ -81,7 +89,7 @@ public class Pelicula {
 
 	@Override
 	public String toString() {
-		return "Pelicula [id_pelicula=" + id_pelicula + ", nombre=" + nombre + ", año_estreno=" + anho_estreno
+		return "Pelicula [id_pelicula=" + id_pelicula + ", nombre=" + nombre + ", aÃ±o_estreno=" + anho_estreno
 				+ ", categoria=" + categoria + "]";
 	}
 
