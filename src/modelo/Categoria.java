@@ -1,3 +1,11 @@
+/**
+ * Clase Categoria
+ * Clase modelo para gestionar las Categorias
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package modelo;
 
 import utilidades.Datos;
