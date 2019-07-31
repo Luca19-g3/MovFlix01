@@ -79,7 +79,7 @@ public class Pelicula {
 		try {
 
 			this.nombre = Datos.recogeString("Introduce el nombre de la pelicula: ");
-			this.anho_estreno = Datos.recogeInt("Introduce el año de estreno: ");
+			this.anho_estreno = Datos.recogeInt("Introduce el anho de estreno: ");
 			this.categoria = Datos.recogeString("Introduzca la categoria de la pelicula: ");
 
 		} catch (Exception e) {
