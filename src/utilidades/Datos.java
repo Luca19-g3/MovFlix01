@@ -1,3 +1,11 @@
+/**
+ * Clase Datos
+ * Clase para gestionar la entrada de teclado
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package utilidades;
 
 import java.util.Scanner;
