@@ -314,7 +314,7 @@ public class Servicios {
 	 * @param none
 	 * @return void
 	 */
-	public void listarPeliculasPeliculasMasValoradas() {
+	public void listarPeliculasMasValoradas() {
 		logger.debug("Ejecutando metodo listarPeliculasMasValoradas en la clase Servicios");
 		int limite;
 		try {
@@ -326,7 +326,7 @@ public class Servicios {
 
 	}
 
-	public void listarPeliculasPeliculasMasVistas() {
+	public void listarPeliculasMasVistas() {
 		logger.debug("Ejecutando metodo listarPeliculasMasVistas en la clase Servicios");
 		int limite;
 		try {

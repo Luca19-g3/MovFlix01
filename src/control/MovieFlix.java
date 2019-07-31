@@ -59,7 +59,7 @@ public class MovieFlix {
 				break;
 			case 2:
 				logger.debug("Ha elegido la opcion 2");
-				servicio.modificarUsuario();
+				servicio.modificarPelicula();
 				break;
 
 			case 3:
@@ -112,14 +112,14 @@ public class MovieFlix {
 				break;
 			case 13:
 				logger.debug("Ha elegido la opcion 13"); 
-				servicio.listarPeliculasPeliculasMasValoradas();
+				servicio.listarPeliculasMasValoradas();
 				break;
 			case 14:
 				logger.debug("Ha elegido la opcion 14"); 
-				servicio.listarPeliculasPeliculasMasVistas();
+				servicio.listarPeliculasMasVistas();
 				break;
 			case 15:
-				logger.debug("Ha elegido la opcion 14"); 
+				logger.debug("Ha elegido la opcion 15"); 
 				servicio.listarPeliculasVistas();
 				break;
 			case 16:
