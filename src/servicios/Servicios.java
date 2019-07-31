@@ -253,6 +253,7 @@ public class Servicios {
 		logger.debug("Ejecutando metodo modificarCategoria en la clase Servicios");
 		int id;
 		try {
+			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 			id = Datos.recogeInt("Introduzca el id de la Categoria a modificar");
 			if (cd.obtenerCategoria(id) == null) {
 				logger.error("La categoria que intenta modificar no existe");
