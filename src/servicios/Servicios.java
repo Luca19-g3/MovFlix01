@@ -397,7 +397,7 @@ public class Servicios {
 		try {
 			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")),
-					".");
+					"Peliculas filtradas por la categoria");
 
 		} catch (Exception e) {
 
