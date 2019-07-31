@@ -1,3 +1,11 @@
+/**
+ * Clase PeliculaDAo
+ * Clase que contiene los metodos para las peliculas, que interaccionan con la base de datos
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package datos;
 
 import java.sql.PreparedStatement;
