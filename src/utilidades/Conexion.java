@@ -15,10 +15,10 @@ public class Conexion {
 		try {
 			logger = LogManager.getLogger(MovieFlix.class);
 		} catch (Throwable e) {
-			System.out.println("Logger Don't work");
+			System.out.println("Logger no funciona");
 		}
 	}
-	
+
 	Connection connection = null;
 	String url = "jdbc:mysql://luca19-3g.czwqwdxylfvc.eu-west-1.rds.amazonaws.com/movieflix?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	String user = "root";
@@ -29,23 +29,24 @@ public class Conexion {
 
 			connection = DriverManager.getConnection(url, user, password);
 
-
 		} catch (SQLException E) {
 			logger.error("Excepcion SQL: " + E.getMessage());
 			logger.error("Estado SQL: " + E.getSQLState());
 			logger.error("Codigo del Error: " + E.getErrorCode());
-			
 
 		} catch (Exception E) {
 			logger.error("Otro problema: " + E);
 
 		}
 	}
-/*
- * Este metodo recupera la conexion con la base de datos
- * @param
- * @return none
- */
+
+	/*
+	 * Este metodo obtiene la conexion con la base de datos
+	 * 
+	 * @param none
+	 * 
+	 * @return Connection
+	 */
 	public Connection getConnection() {
 		return connection;
 	}
