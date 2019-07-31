@@ -56,8 +56,8 @@ public class Pelicula {
 		return anho_estreno;
 	}
 
-	public void setAnho_estreno(int año_estreno) {
-		this.anho_estreno = año_estreno;
+	public void setAnho_estreno(int anho_estreno) {
+		this.anho_estreno = anho_estreno;
 	}
 
 	public String getCategoria() {
@@ -89,7 +89,7 @@ public class Pelicula {
 
 	@Override
 	public String toString() {
-		return "Pelicula [id_pelicula=" + id_pelicula + ", nombre=" + nombre + ", año_estreno=" + anho_estreno
+		return "Pelicula [id_pelicula=" + id_pelicula + ", nombre=" + nombre + ", anho_estreno=" + anho_estreno
 				+ ", categoria=" + categoria + "]";
 	}
 
