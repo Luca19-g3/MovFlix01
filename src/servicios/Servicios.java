@@ -79,10 +79,6 @@ public class Servicios {
 							"Hubo un problema al intentar modificar la Pelicula. La categoria no ha sido modificada.");
 				}
 			}
-			VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
-
-			VistaPelicula.mostrarListaPeliculas(pd.obtenerPeliculasPorCategoria(Datos.recogeInt("Elija una categoria")),
-					"Categoria.");
 
 		} catch (Exception e) {
 			logger.error("Excepcion servicios.modificarCategoria. " + e.getMessage());
@@ -152,8 +148,6 @@ public class Servicios {
 		logger.debug("Ejecutando metodo listarCategorias en la clase Servicios");
 		VistaCategoria.mostrarListaCategorias(cd.listarCategoria());
 	}
-
-	
 
 	/**
 	 * Da de alta un usuario
@@ -385,7 +379,7 @@ public class Servicios {
 			logger.error("Excepcion servicios.listarPeliculasNoVistas. " + e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Lista las peliculas filtradas por categoria
 	 * 
