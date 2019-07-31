@@ -232,7 +232,7 @@ public class PeliculaDao implements IPeliculasDao {
 			st = con.getConnection().createStatement();
 			rs = st.executeQuery("SELECT Nombre, TRUNCATE(AVG(Valoraciones),0) AS Valoracion\r\n"
 					+ "FROM Peliculas P , PeliculasVistas V\r\n" + "where P.idPeliculas=V.id_Peliculas\r\n"
-					+ "group by id_Peliculas\r\n" + "ORDER BY Valoracion DESC LIMIT"+limite+";");
+					+ "group by id_Peliculas\r\n" + "ORDER BY Valoracion DESC LIMIT "+limite+";");
 
 			while (rs.next()) {
 
