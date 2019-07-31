@@ -1,3 +1,11 @@
+/**
+ * Clase VistaUsuario
+ * Clase para controlar la impresion de datos relativos a los Usuarios
+ *@author grupo3
+ *@version 1.0
+ * fecha 31/07/2019
+ * 
+ */
 package vistas;
 
 import java.util.List;
