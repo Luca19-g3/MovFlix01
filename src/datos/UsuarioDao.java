@@ -18,7 +18,7 @@ public class UsuarioDao implements IUsuarioDao {
 
 	static Statement st = null;
 	static ResultSet rs = null;
-	static Conexion con = new Conexion();
+
 
 	// Logger
 	private static Logger logger;
@@ -36,6 +36,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 * @param usuario
 	 */
 	public void altaUsuario(Usuario u) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo altaUsuario() en la clase UsuarioDao");
 		String sql = "INSERT INTO Usuarios (Nombre,Fecha_nacimiento,CiudadResidencia) values('" + u.getNombre_completo()
 				+ "','" + u.getFecha_nacimiento() + "','" + u.getCiudad_residencia() + "')";
@@ -47,7 +48,7 @@ public class UsuarioDao implements IUsuarioDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Añadido correctamente");
-
+			con.desconectar();
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
 		}
@@ -61,6 +62,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 */
 
 	public List<Usuario> listarUsuario() {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo listarUsuario() en la clase UsuarioDao");
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 
@@ -71,7 +73,7 @@ public class UsuarioDao implements IUsuarioDao {
 			while (rs.next()) {
 				usuarios.add(new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
 			}
-
+			con.desconectar();
 			return usuarios;
 
 		} catch (SQLException ex) {
@@ -88,13 +90,14 @@ public class UsuarioDao implements IUsuarioDao {
 	 */
 
 	public boolean bajaUsuario(int id) {
-
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo bajaUsuario() en la clase UsuarioDao");
 		try {
 			st = con.getConnection().createStatement();
 			int i = st.executeUpdate("DELETE FROM Usuarios WHERE idUsuarios =" + id);
 
 			logger.info("Eliminado correctamente");
+			con.desconectar();
 			return true;
 		} catch (SQLException e) {
 			logger.error("Error");
@@ -110,6 +113,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 * @return void
 	 */
 	public boolean modificarUsuario(Usuario us, int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo modificarUsuario() en la clase UsuarioDao");
 		try {
 			String sql = "UPDATE Usuarios SET Nombre= '" + us.getNombre_completo() + "',Fecha_nacimiento= '"
@@ -121,6 +125,7 @@ public class UsuarioDao implements IUsuarioDao {
 			int i = st.executeUpdate(sql);
 			logger.info(sql);
 			logger.info("Modificado correctamente");
+			con.desconectar();
 			return true;
 		} catch (SQLException ex) {
 			logger.error("Error" + ex);
@@ -136,6 +141,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 */
 	@Override
 	public Usuario obtenerUsuario(int id) {
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerUsuario(id) en la clase UsuarioDao");
 		Pelicula p = new Pelicula();
 		try {
@@ -145,7 +151,7 @@ public class UsuarioDao implements IUsuarioDao {
 			while (rs.next()) {
 				return new Usuario(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
 			}
-
+			con.desconectar();
 			return null;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
@@ -159,6 +165,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 * @return List<Pelicula> | null 
 	 */
 	public List<Pelicula> obtenerPeliculasVistas(int id){
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasVistas(id) en la clase UsuarioDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 		try {
@@ -169,6 +176,7 @@ public class UsuarioDao implements IUsuarioDao {
 			while (rs.next()) {
 				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
 			}
+			con.desconectar();
 			return peliculas;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
@@ -183,6 +191,7 @@ public class UsuarioDao implements IUsuarioDao {
 	 * @return List<Pelicula> | null 
 	 */
 	public List<Pelicula> obtenerPeliculasNoVistas(int id){
+		Conexion con = new Conexion();
 		logger.debug("Ejecutando metodo obtenerPeliculasNoVistas(id) en la clase UsuarioDao");
 		List<Pelicula> peliculas = new ArrayList<Pelicula>();
 		try {
@@ -193,6 +202,7 @@ public class UsuarioDao implements IUsuarioDao {
 			while (rs.next()) {
 				peliculas.add(new Pelicula(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4)));
 			}
+			con.desconectar();
 			return peliculas;
 		} catch (SQLException ex) {
 			logger.error("Error " + ex.getMessage());
